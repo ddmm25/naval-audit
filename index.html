@@ -1,0 +1,1199 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>التقرير التحليلي والتنافسي لمتجر NAVAL JEWELRY</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        body { 
+            font-family: 'Cairo', sans-serif; 
+            background-color: #000000; /* Deep Black */
+            color: #f3f4f6; /* Light text for dark theme */
+        }
+        
+        /* Color themes & tokens - Black & Neon Orange */
+        .bg-petroleum { background-color: #0a0a0a; }
+        .text-petroleum { color: #ff6600; }
+        .border-petroleum { border-color: #ff6600; }
+        
+        /* Custom card background using dark surfaces with neon orange borders */
+        .content-card {
+            background-color: #121212; /* Rich dark charcoal */
+            border: 1px solid rgba(255, 102, 0, 0.3);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
+        }
+        .content-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 15px 35px -10px rgba(255, 102, 0, 0.4);
+            border-color: rgba(255, 102, 0, 0.8);
+        }
+
+        .inner-item {
+            background-color: #1a1a1a;
+            border: 1px solid rgba(255, 102, 0, 0.15);
+            transition: all 0.3s ease;
+        }
+        .inner-item:hover {
+            background-color: #241a14;
+            border-color: rgba(255, 102, 0, 0.5);
+            transform: scale(1.01);
+        }
+
+        /* Animations & Motion */
+        @keyframes floatLogo {
+            0%, 100% { transform: translateY(0px) scale(1) rotate(0deg); }
+            50% { transform: translateY(-8px) scale(1.03) rotate(1deg); }
+        }
+        @keyframes pulseGlow {
+            0%, 100% { box-shadow: 0 0 25px rgba(255, 102, 0, 0.8); transform: scale(1); }
+            50% { box-shadow: 0 0 45px rgba(255, 136, 0, 1); transform: scale(1.08); }
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .animate-float {
+            animation: floatLogo 3s ease-in-out infinite;
+        }
+        .animate-glow {
+            animation: pulseGlow 2.5s ease-in-out infinite;
+        }
+        .motion-fade-in {
+            animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        .badge-yellow { background-color: #ff6600; color: #000000; font-weight: 900; }
+
+        /* Modal Viewer Styles */
+        .modal-overlay {
+            background-color: rgba(0, 0, 0, 0.9);
+            backdrop-filter: blur(8px);
+            transition: opacity 0.3s ease;
+        }
+    </style>
+</head>
+<body class="antialiased pb-20 overflow-x-hidden">
+
+    <!-- Global Image Modal Viewer -->
+    <div id="imageModal" class="fixed inset-0 z-[100] modal-overlay hidden flex items-center justify-center p-4">
+        <div class="relative max-w-5xl max-h-[90vh] w-full bg-[#121212] border-2 border-orange-500 rounded-3xl p-4 shadow-[0_0_50px_rgba(255,102,0,0.5)] flex flex-col items-center">
+            <button onclick="closeModal()" class="absolute top-4 left-4 bg-orange-600 hover:bg-orange-500 text-black font-black w-10 h-10 rounded-full flex items-center justify-center text-xl transition-colors shadow-lg z-10 cursor-pointer" title="إغلاق">✕</button>
+            <div class="overflow-auto max-h-[80vh] w-full flex items-center justify-center p-2 mt-8">
+                <img id="modalImage" src="" alt="Full Size Preview" class="max-w-full max-h-[75vh] object-contain rounded-xl border border-orange-500/30" />
+            </div>
+            <p id="modalCaption" class="text-orange-400 text-sm font-bold mt-3 text-center"></p>
+        </div>
+    </div>
+
+    <!-- Header / Top Logo -->
+    <header class="bg-petroleum text-white shadow-2xl py-12 px-6 mb-12 relative overflow-hidden border-b-2 border-orange-500 motion-fade-in">
+        <div class="absolute -top-24 -right-24 w-96 h-96 bg-orange-600/20 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute -bottom-24 -left-24 w-96 h-96 bg-amber-600/10 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto flex flex-col items-center text-center gap-6 relative z-10">
+            
+            <!-- Company Logo at Top Center -->
+            <a href="https://dg-craft.com/index.html" target="_blank" class="block animate-float focus:outline-none">
+                <div class="w-24 h-24 md:w-32 md:h-32 rounded-3xl overflow-hidden shadow-2xl border-4 border-orange-500 bg-black p-1 transition-transform hover:scale-110">
+                    <img src="https://i.ibb.co/M5k30hGM/b3d88775-4dd0-4ccf-ae34-ae20c23ff8da.jpg" alt="Digital Craft Logo" class="w-full h-full object-cover rounded-2xl" onerror="this.src='https://placehold.co/150x150/000000/ff6600?text=DC'" />
+                </div>
+            </a>
+
+            <div class="motion-fade-in" style="animation-delay: 0.2s;">
+                <span class="badge-yellow text-xs px-4 py-1.5 rounded-full uppercase tracking-wider inline-block mb-3 shadow-lg">مقدمة من شركة Digital Craft</span>
+                <h1 class="text-3xl md:text-5xl font-black tracking-tight text-white mb-2 drop-shadow-md">التقرير التحليلي والتنافسي لمتجر NAVAL JEWELRY</h1>
+                <div class="text-sm md:text-base text-slate-300 font-semibold mt-2 space-y-1">
+                    <p>نطاق الدراسة: تحليل الأداء الرقمي، الموقع الإلكتروني، محركات البحث، وسائل التواصل الاجتماعي، تجربة المستخدم، والموقف التنافسي.</p>
+                    <p class="text-orange-400 font-bold">المتجر محل التحليل: NAVAL Jewelry | الموقع: <a href="https://navaljewelry.com/" target="_blank" class="underline">https://navaljewelry.com/</a></p>
+                    <p class="text-slate-400 text-xs">المنافسون محل المقارنة: Kooheji Jewellery | Fayendra &nbsp;|&nbsp; تاريخ إعداد التحليل: 10 نوفمبر 2026</p>
+                </div>
+            </div>
+
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-6 space-y-12">
+
+        <!-- Section 1 -->
+        <section class="content-card p-8 rounded-3xl shadow-xl motion-fade-in">
+            <h2 class="text-2xl font-black text-orange-500 mb-4 pb-2 border-b-2 border-orange-500/50 inline-block">أولًا: الملخص التنفيذي</h2>
+            <p class="text-slate-300 leading-relaxed text-base md:text-lg mb-4">
+                يتمتع متجر NAVAL بحضور رقمي جيد وقاعدة جماهيرية كبيرة نسبيًا، بالإضافة إلى امتلاكه قاعدة من الروابط الخارجية والكلمات المفتاحية التي تساعده على الظهور في محركات البحث. كما يمتلك المتجر تنوعًا في المنتجات والمجموعات، وهو ما يوفر فرصًا جيدة للتوسع التجاري وزيادة المبيعات عبر القنوات الرقمية.
+            </p>
+            <p class="text-slate-300 leading-relaxed text-base md:text-lg mb-4">
+                لكن نتائج الفحص تشير إلى وجود فجوة واضحة بين حجم الحضور الرقمي والأداء الفعلي لتجربة المستخدم، خاصة على الهواتف المحمولة، إلى جانب وجود فرص غير مستغلة في الكلمات المفتاحية ذات النية الشرائية، وتحسين بنية الموقع ومعالجة مشكلات الصفحات غير الموجودة.
+            </p>
+            <p class="text-slate-300 leading-relaxed text-base md:text-lg mb-4">
+                وتتمثل أبرز التحديات الحالية في انخفاض تقييم أداء الموقع على الهاتف المحمول، وارتفاع زمن تحميل المحتوى الرئيسي، ووجود صفحات تعاني من أخطاء تقنية، بالإضافة إلى التركيز الكبير على الكلمات المفتاحية المعلوماتية مقارنة بالكلمات التجارية والشرائية.
+            </p>
+            <p class="text-slate-300 leading-relaxed text-base md:text-lg mb-4">
+                كما تشير بيانات وسائل التواصل الاجتماعي إلى امتلاك NAVAL قاعدة جماهيرية جيدة، إلا أن معدل التفاعل المسجل لا يعكس الحجم الكامل لهذه القاعدة، وهو ما يستدعِي إعادة تطوير استراتيجية المحتوى وتحويل الحسابات الاجتماعية إلى قنوات أكثر فاعلية في جذب العملاء وتحفيزهم على الشراء.
+            </p>
+            <div class="inner-item p-5 rounded-2xl border-l-4 border-orange-500 mt-6">
+                <h3 class="font-bold text-orange-400 mb-2">الاستنتاج الرئيسي:</h3>
+                <p class="text-slate-300 text-sm md:text-base">
+                    لا تتمثل الفرصة التسويقية الأكبر لدى NAVAL في زيادة الزيارات فقط، بل في تحسين جودة الزيارات الحالية، ورفع معدل تحويل الزائر إلى مشترٍ، والاستفادة من الظهور العضوي وقاعدة المتابعين الحالية لتحقيق عائد تجاري أفضل.
+                </p>
+            </div>
+        </section>
+
+        <!-- Section 2 -->
+        <section class="content-card p-8 rounded-3xl shadow-xl motion-fade-in">
+            <h2 class="text-2xl font-black text-orange-500 mb-4 pb-2 border-b-2 border-orange-500/50 inline-block">ثانيًا: التحليل التفصيلي لمؤشرات الموقع الإلكتروني NAVAL</h2>
+            
+            <div class="space-y-8 mt-6">
+                <div class="inner-item p-6 rounded-2xl">
+                    <h3 class="text-xl font-bold text-orange-400 mb-3">1. تحليل أداء الموقع وسرعة التحميل – PageSpeed Insights</h3>
+                    <p class="text-slate-300 mb-4">أظهرت نتائج اختبار أداء الموقع على الهواتف المحمولة حصول NAVAL على تقييم 39 من 100، وهو مستوى ضعيف يشير إلى وجود مشكلات تقنية تؤثر في سرعة تحميل الموقع واستجابة عناصره.</p>
+                    <p class="text-slate-300 mb-4">وتعتبر هذه النتيجة من أهم المؤشرات التي تستحق المعالجة، نظرًا لاعتماد قطاع المجوهرات بدرجة كبيرة على الصور والفيديوهات والتصفح المرئي للمنتجات، بالإضافة إلى أهمية تجربة الهاتف المحمول في رحلة الشراء.</p>
+
+                    <!-- Proof Screenshot: PageSpeed Insights -->
+                    <div class="my-6 p-3 rounded-2xl bg-black/60 border border-orange-500/40 text-center">
+                        <p class="text-orange-300 text-xs font-semibold mb-2">إثبات نتيجة تحليل PageSpeed Insights (اضغط للتكبير بالحجم الكامل)</p>
+                        <div class="overflow-hidden rounded-xl border border-orange-500/30 transition-transform hover:scale-[1.01] cursor-pointer" onclick="openModal('https://i.ibb.co/ZpBjJTd8/Chat-GPT-Image-Nov-10-2026-01-38-14-PM.png', 'إثبات نتيجة تحليل PageSpeed Insights')">
+                            <img src="https://i.ibb.co/ZpBjJTd8/Chat-GPT-Image-Nov-10-2026-01-38-14-PM.png" alt="PageSpeed Insights Proof" class="w-full h-auto object-cover max-h-[450px] mx-auto rounded-xl pointer-events-none" />
+                        </div>
+                    </div>
+
+                    <div class="space-y-4 mt-4">
+                        <div class="p-4 rounded-xl bg-black/40 border border-orange-500/20">
+                            <h4 class="font-bold text-orange-300 mb-1">أولًا: Performance Score – 39</h4>
+                            <p class="text-slate-300 text-sm mb-2">تشير هذه النتيجة إلى ضعف الأداء العام للموقع على الهواتف المحمولة.</p>
+                            <p class="text-slate-300 text-sm mb-2">وقد يؤدي ذلك إلى تأخر ظهور المنتجات والعروض الرئيسية، وزيادة احتمالية مغادرة المستخدم قبل استكمال تصفح المتجر.</p>
+                            <p class="text-slate-300 text-sm">كما يمكن أن يؤثر ضعف الأداء في كفاءة الحملات الإعلانية، لأن العميل الذي يصل إلى الموقع من إعلان ممول قد يواجه تجربة تحميل بطيئة تؤثر في رغبته في الاستمرار وإتمام عملية الشراء.</p>
+                        </div>
+
+                        <div class="p-4 rounded-xl bg-black/40 border border-orange-500/20">
+                            <h4 class="font-bold text-orange-300 mb-1">ثانيًا: First Contentful Paint – 4.6 ثانية</h4>
+                            <p class="text-slate-300 text-sm mb-2">يقيس هذا المؤشر الوقت اللازم لظهور أول عنصر مرئي من محتوى الصفحة، سواء كان نصًا أو صورة أو عنصرًا آخر.</p>
+                            <p class="text-slate-300 text-sm mb-2">وتشير النتيجة إلى أن المستخدم يحتاج إلى الانتظار فترة طويلة نسبيًا قبل أن يبدأ في رؤية محتوى الموقع.</p>
+                            <p class="text-slate-300 text-sm">ويؤثر ذلك في الانطباع الأول عن المتجر، خصوصًا عندما يصل المستخدم من حملة إعلانية أو نتيجة بحث ويتوقع ظهور المحتوى بصورة سريعة.</p>
+                        </div>
+
+                        <div class="p-4 rounded-xl bg-black/40 border border-orange-500/20">
+                            <h4 class="font-bold text-orange-300 mb-1">ثالثًا: Largest Contentful Paint – 15.7 ثانية</h4>
+                            <p class="text-slate-300 text-sm mb-2">يعتبر هذا المؤشر من أبرز المشكلات التقنية التي ظهرت في التحليل. يقيس المؤشر الوقت اللازم لظهور أكبر عنصر محتوى مرئي داخل الشاشة، والذي غالبًا ما يكون صورة رئيسية أو بانرًا أو كتلة محتوى كبيرة.</p>
+                            <p class="text-slate-300 text-sm mb-2">وتعتبر قيمة 15.7 ثانية مرتفعة جدًا مقارنة بالمستوى المستهدف، حيث توصي Google بأن يكون المؤشر عند 2.5 ثانية أو أقل للحصول على تجربة جيدة.</p>
+                            <p class="text-slate-300 text-sm mb-2">وتكتسب هذه المشكلة أهمية خاصة في متجر NAVAL؛ لأن الصور الرئيسية وصور المنتجات تمثل عنصرًا أساسيًا في إقناع العميل بالمجوهرات المعروضة.</p>
+                            <p class="text-orange-300 text-sm font-semibold mb-2">وقد تؤدي هذه المشكلة إلى:</p>
+                            <ul class="list-disc list-inside space-y-1 text-slate-300 text-sm mr-4 mb-3">
+                                <li>تأخر ظهور المنتجات والعروض الرئيسية.</li>
+                                <li>انخفاض احتمالية استكمال الزائر لرحلة التصفح.</li>
+                                <li>فقدان جزء من الزيارات القادمة من الحملات الإعلانية.</li>
+                                <li>ضعف تجربة المستخدم على اتصالات الإنترنت متوسطة السرعة.</li>
+                                <li>انخفاض كفاءة صفحات الهبوط المستخدمة في الحملات التسويقية.</li>
+                            </ul>
+                            <p class="text-orange-400 text-sm font-bold">التوصية: يجب إعطاء أولوية قصوى لتحسين تحميل العناصر المرئية الرئيسية، ومراجعة حجم الصور وطريقة عرضها، وتحديد الموارد التي تتسبب في تأخر ظهور المحتوى.</p>
+                        </div>
+
+                        <div class="p-4 rounded-xl bg-black/40 border border-orange-500/20">
+                            <h4 class="font-bold text-orange-300 mb-1">رابعًا: Total Blocking Time – 850 ms</h4>
+                            <p class="text-slate-300 text-sm mb-2">يقيس هذا المؤشر إجمالي الوقت الذي تكون فيه الصفحة مشغولة بمهام معالجة تمنع الاستجابة السريعة لتفاعل المستخدم خلال الاختبار.</p>
+                            <p class="text-slate-300 text-sm mb-2">وتشير النتيجة إلى وجود احتمالية لزيادة عمليات JavaScript أو السكريبتات الخارجية أو العناصر البرمجية التي تتطلب معالجة طويلة.</p>
+                            <p class="text-slate-300 text-sm mb-3">وقد يؤثر ذلك في سرعة استجابة الموقع عند الضغط على التصنيفات أو فتح قوائم المنتجات أو استخدام أزرار إضافة المنتجات إلى السلة.</p>
+                            <p class="text-orange-300 text-sm font-semibold mb-1">التوصيات:</p>
+                            <ul class="list-disc list-inside space-y-1 text-slate-300 text-sm mr-4">
+                                <li>مراجعة أكواد JavaScript غير الضرورية.</li>
+                                <li>تقليل السكريبتات الخارجية التي لا تقدم قيمة مباشرة للمتجر.</li>
+                                <li>تأجيل تحميل الأكواد غير المطلوبة في بداية فتح الصفحة.</li>
+                                <li>مراجعة تطبيقات الطرف الثالث المستخدمة داخل المتجر.</li>
+                                <li>تحسين طريقة تحميل العناصر التفاعلية.</li>
+                            </ul>
+                        </div>
+
+                        <div class="p-4 rounded-xl bg-black/40 border border-orange-500/20">
+                            <h4 class="font-bold text-orange-300 mb-1">خامسًا: Cumulative Layout Shift – صفر</h4>
+                            <p class="text-slate-300 text-sm mb-2">يمثل هذا المؤشر نقطة إيجابية في أداء الموقع. يقيس المؤشر مدى استقرار ترتيب العناصر المرئية أثناء تحميل الصفحة، وتشير النتيجة إلى أن الاختبار لم يرصد انتقالات مفاجئة في مواضع العناصر.</p>
+                            <p class="text-slate-300 text-sm">وبالتالي فإن استقرار التصميم ليس المشكلة الأساسية الظاهرة في التقرير، وإنما تتمثل المشكلة بشكل رئيسي في سرعة ظهور المحتوى واستجابة الموقع.</p>
+                        </div>
+
+                        <div class="p-4 rounded-xl bg-black/40 border border-orange-500/20">
+                            <h4 class="font-bold text-orange-300 mb-1">سادسًا: Speed Index – 7.7 ثانية</h4>
+                            <p class="text-slate-300 text-sm mb-2">يقيس هذا المؤشر مدى سرعة ظهور المحتوى المرئي تدريجيًا على الشاشة.</p>
+                            <p class="text-slate-300 text-sm mb-2">وتشير النتيجة إلى أن الصفحة تحتاج إلى وقت طويل نسبيًا حتى تظهر بصورة مكتملة للمستخدم.</p>
+                            <p class="text-slate-300 text-sm">ويؤثر ذلك في جودة تجربة التصفح، خاصة عند مشاهدة صور المنتجات والتنقل بين الأقسام المختلفة.</p>
+                        </div>
+                    </div>
+
+                    <div class="mt-6 p-4 rounded-xl bg-orange-500/10 border border-orange-500/30">
+                        <h4 class="font-bold text-orange-400 mb-2">التوصيات التقنية لتحسين الأداء</h4>
+                        <p class="text-slate-300 text-sm mb-2">يوصى بتنفيذ مجموعة من الإجراءات الفنية، تشمل:</p>
+                        <ul class="list-disc list-inside space-y-1.5 text-slate-300 text-sm mr-4">
+                            <li>ضغط صور المنتجات والبانرات الرئيسية وتحويلها إلى صيغ حديثة مثل WebP أو AVIF.</li>
+                            <li>تحديد أبعاد الصور المناسبة لكل نوع شاشة بدلًا من تحميل ملفات كبيرة على الهواتف المحمولة.</li>
+                            <li>إعطاء الصورة الرئيسية الأولوية في التحميل.</li>
+                            <li>تأجيل تحميل الصور الموجودة أسفل الصفحة باستخدام Lazy Loading.</li>
+                            <li>تقليل ملفات JavaScript غير الضرورية.</li>
+                            <li>تحسين ملفات CSS والخطوط وتقليل طلبات الخادم.</li>
+                            <li>مراجعة سكريبتات التتبع والتطبيقات الخارجية المستخدمة داخل المتجر.</li>
+                            <li>تحسين إعدادات التخزين المؤقت.</li>
+                            <li>الاستفادة من شبكات توزيع المحتوى CDN عند الحاجة.</li>
+                            <li>إعادة اختبار أداء الموقع بعد تنفيذ التحسينات للتأكد من تأثيرها الفعلي.</li>
+                        </ul>
+                        <p class="text-orange-300 text-sm font-bold mt-3">النتيجة: تحسين سرعة الموقع على الهاتف يجب أن يكون من أولويات المشروع، قبل زيادة حجم الزيارات الإعلانية بصورة كبيرة.</p>
+                    </div>
+                </div>
+
+                <!-- 2. SEMrush -->
+                <div class="inner-item p-6 rounded-2xl">
+                    <h3 class="text-xl font-bold text-orange-400 mb-3">2. تحليل محركات البحث – SEMrush</h3>
+                    <p class="text-slate-300 mb-4">تعكس مؤشرات SEMrush وجود قاعدة جيدة من الظهور العضوي للموقع، لكنها تكشف أيضًا عن فرص مهمة لتحسين جودة الزيارات وتحويلها إلى مبيعات.</p>
+
+                    <!-- Proof Screenshots: SEMrush -->
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 my-6">
+                        <div class="p-3 rounded-2xl bg-black/60 border border-orange-500/40 text-center">
+                            <p class="text-orange-300 text-xs font-semibold mb-2">إثبات SEMrush (1)</p>
+                            <div class="overflow-hidden rounded-xl border border-orange-500/30 transition-transform hover:scale-105 cursor-pointer" onclick="openModal('https://i.ibb.co/TxMgp99z/Chat-GPT-Image-Nov-10-2026-01-39-38-PM.png', 'إثبات SEMrush (1)')">
+                                <img src="https://i.ibb.co/TxMgp99z/Chat-GPT-Image-Nov-10-2026-01-39-38-PM.png" alt="SEMrush Proof 1" class="w-full h-48 object-cover rounded-xl pointer-events-none" />
+                            </div>
+                        </div>
+                        <div class="p-3 rounded-2xl bg-black/60 border border-orange-500/40 text-center">
+                            <p class="text-orange-300 text-xs font-semibold mb-2">إثبات SEMrush (2)</p>
+                            <div class="overflow-hidden rounded-xl border border-orange-500/30 transition-transform hover:scale-105 cursor-pointer" onclick="openModal('https://i.ibb.co/jPkvfBq1/Chat-GPT-Image-Nov-10-2026-01-39-58-PM.png', 'إثبات SEMrush (2)')">
+                                <img src="https://i.ibb.co/jPkvfBq1/Chat-GPT-Image-Nov-10-2026-01-39-58-PM.png" alt="SEMrush Proof 2" class="w-full h-48 object-cover rounded-xl pointer-events-none" />
+                            </div>
+                        </div>
+                        <div class="p-3 rounded-2xl bg-black/60 border border-orange-500/40 text-center">
+                            <p class="text-orange-300 text-xs font-semibold mb-2">إثبات SEMrush (3)</p>
+                            <div class="overflow-hidden rounded-xl border border-orange-500/30 transition-transform hover:scale-105 cursor-pointer" onclick="openModal('https://i.ibb.co/KzV27WxT/Chat-GPT-Image-Nov-10-2026-01-40-18-PM.png', 'إثبات SEMrush (3)')">
+                                <img src="https://i.ibb.co/KzV27WxT/Chat-GPT-Image-Nov-10-2026-01-40-18-PM.png" alt="SEMrush Proof 3" class="w-full h-48 object-cover rounded-xl pointer-events-none" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="space-y-4">
+                        <div class="p-4 rounded-xl bg-black/40 border border-orange-500/20">
+                            <h4 class="font-bold text-orange-300 mb-1">المملكة العربية السعودية</h4>
+                            <p class="text-slate-300 text-sm mb-2">تعتبر السوق الأهم من حيث حجم الزيارات الظاهرة في التقرير، حيث تظهر الزيارات التقديرية عند 7,400 زيارة، مع 571 كلمة مفتاحية.</p>
+                            <p class="text-slate-300 text-sm">وهذا يتيح فرصة للتركيز على تحسين الظهور في السوق السعودي، واستهداف الكلمات المرتبطة بطلب المجوهرات والهدايا والمناسبات.</p>
+                        </div>
+                        <div class="p-4 rounded-xl bg-black/40 border border-orange-500/20">
+                            <h4 class="font-bold text-orange-300 mb-1">مصر</h4>
+                            <p class="text-slate-300 text-sm mb-2">تظهر مصر بحجم زيارات تقديري يبلغ 2,700 زيارة، مع 652 كلمة مفتاحية.</p>
+                            <p class="text-slate-300 text-sm">ووجود هذا العدد من الكلمات والزيارات يستحق تحليلًا إضافيًا لمعرفة طبيعة الجمهور ومصادر الزيارات ومدى ارتباطه بالمنتجات والمبيعات.</p>
+                        </div>
+                        <div class="p-4 rounded-xl bg-black/40 border border-orange-500/20">
+                            <h4 class="font-bold text-orange-300 mb-1">الأردن</h4>
+                            <p class="text-slate-300 text-sm">تظهر الأردن بحوالي 331 زيارة و63 كلمة مفتاحية، وهو حضور يمكن تقييمه ضمن دراسة الأسواق الثانوية.</p>
+                        </div>
+                        <div class="p-4 rounded-xl bg-black/40 border border-orange-500/20">
+                            <h4 class="font-bold text-orange-300 mb-1">الأسواق الأخرى</h4>
+                            <p class="text-slate-300 text-sm mb-2">تشير البيانات إلى وجود زيارات إضافية من أسواق متعددة، وهو ما يفتح مجالًا لدراسة فرص التوسع الدولي.</p>
+                            <p class="text-slate-300 text-sm mb-2">لكن لا يُنصح بتوجيه ميزانيات إعلانية إلى هذه الأسواق قبل التحقق من قدرتها على تحقيق مبيعات، وتحديد تكاليف الشحن والتوصيل ومتطلبات الدفع وخدمة العملاء فيها.</p>
+                            <p class="text-orange-400 text-sm font-bold">التوصية الاستراتيجية: بناء استراتيجية SEO وحملات تسويقية يكون محورها الأساسي السوق السعودي، مع دراسة الأسواق الأخرى بناءً على الإيرادات ومعدلات التحويل وتكلفة اكتساب العميل.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 4. Search Intent -->
+                <div class="inner-item p-6 rounded-2xl">
+                    <h3 class="text-xl font-bold text-orange-400 mb-3">4. تحليل الكلمات المفتاحية حسب نية المستخدم – Search Intent</h3>
+                    <p class="text-slate-300 mb-4">تعتبر هذه النقطة من أهم النتائج الاستراتيجية في تحليل NAVAL. تشير البيانات إلى أن 85.7% من الكلمات المفتاحية ذات طبيعة معلوماتية، أي 502 كلمة من إجمالي الكلمات الظاهرة في التقرير. بينما تمثل الكلمات الملاحية المرتبطة بالعلامة التجارية حوالي 8.5%، بعدد 50 كلمة. أما الكلمات التجارية فتبلغ 5 كلمات فقط، بنسبة 0.9%. وتبلغ الكلمات الشرائية 29 كلمة، بنسبة 4.9%.</p>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 my-4">
+                        <div class="p-4 rounded-xl bg-black/40 border border-orange-500/20">
+                            <h4 class="font-bold text-orange-300 mb-1">أولًا: الكلمات المعلوماتية Informational</h4>
+                            <p class="text-slate-300 text-sm">يبحث المستخدم من خلالها عن معلومات أو نصائح أو إجابات عن أسئلة معينة. على سبيل المثال، الشخص الذي يبحث عن كيفية اختيار الألماس أو طرق العناية بالمجوهرات قد يدخل إلى الموقع لقراءة مقال، لكنه ليس بالضرورة مستعدًا للشراء في الوقت نفسه.</p>
+                        </div>
+                        <div class="p-4 rounded-xl bg-black/40 border border-orange-500/20">
+                            <h4 class="font-bold text-orange-300 mb-1">ثانيًا: الكلمات الملاحية Navigational</h4>
+                            <p class="text-slate-300 text-sm">يستخدمها العميل للوصول إلى علامة تجارية أو موقع محدد. ويمثل ظهور NAVAL في هذه الكلمات فرصة لتعزيز حضور العلامة والحفاظ على ظهورها أمام الجمهور الذي يبحث عنها مباشرة.</p>
+                        </div>
+                        <div class="p-4 rounded-xl bg-black/40 border border-orange-500/20">
+                            <h4 class="font-bold text-orange-300 mb-1">ثالثًا: الكلمات التجارية Commercial</h4>
+                            <p class="text-slate-300 text-sm">يستخدمها الباحث عندما يرغب في مقارنة المنتجات أو استكشاف الخيارات المتاحّة قبل اتخاذ قرار الشراء. وهذا النوع من الكلمات مهم لأنه يمثل مرحلة متقدمة في رحلة العميل.</p>
+                        </div>
+                        <div class="p-4 rounded-xl bg-black/40 border border-orange-500/20">
+                            <h4 class="font-bold text-orange-300 mb-1">رابعًا: الكلمات الشرائية Transactional</h4>
+                            <p class="text-slate-300 text-sm">تعكس رغبة مباشرة أو قريبة من الشراء. ومن أمثلتها البحث عن منتج محدد أو متجر يقدم نوعًا معينًا من المجوهرات أو البحث عن سعر منتج معين.</p>
+                        </div>
+                    </div>
+
+                    <p class="text-orange-300 font-bold mb-2">المشكلة التسويقية</p>
+                    <p class="text-slate-300 mb-4 text-sm">يتضح أن الجزء الأكبر من الكلمات المفتاحية التي يظهر بها الموقع يرتبط بالمعلومات والاستفسارات، وليس بالمقارنة التجارية أو اتخاذ قرار الشراء. وهذا يعني أن الموقع لديه فرصة كبيرة في تحويل قوة المحتوى المعلوماتي الحالية إلى زيارات تجارية.</p>
+
+                    <p class="text-orange-300 font-bold mb-2">التوصيات</p>
+                    <ul class="list-disc list-inside space-y-1.5 text-slate-300 text-sm mr-4 mb-4">
+                        <li>إنشاء صفحات تصنيف مخصصة للكلمات التجارية والشرائية.</li>
+                        <li>تحسين صفحات المنتجات باستخدام أسماء واضحة ومواصفات دقيقة.</li>
+                        <li>ربط المقالات المعلوماتية بالمنتجات والتصنيفات المناسبة.</li>
+                        <li>إضافة روابط واضحة للشراء داخل المقالات.</li>
+                        <li>استهداف الكلمات التي تتضمن السعر والمواصفات والنوع والمناسبة.</li>
+                        <li>تحسين صفحات المجموعات لتكون وجهة مباشرة للباحث عن منتج بعينه.</li>
+                        <li>إنشاء محتوى يساعد العميل في المقارنة بين أنواع المنتجات.</li>
+                        <li>تطوير محتوى مخصص للمنتجات الأكثر طلبًا.</li>
+                    </ul>
+                    <p class="text-orange-400 text-sm font-bold">الخلاصة: المطلوب ليس إيقاف المحتوى المعلوماتي، بل استغلاله لتوجيه الزائر تدريجيًا إلى صفحات المنتجات والشراء.</p>
+                </div>
+
+                <!-- 5. Screaming Frog -->
+                <div class="inner-item p-6 rounded-2xl">
+                    <h3 class="text-xl font-bold text-orange-400 mb-3">5. التحليل الفني للموقع – Screaming Frog</h3>
+                    <p class="text-slate-300 mb-4">أظهر تقرير الزحف وجود 246 عنوان URL ضمن الفحص، مع ظهور مجموعة من الصفحات التي تحمل استجابة HTTP 404 Not Found. وتعتبر هذه المشكلة من الأمور التي تستحق المراجعة، خاصة إذا كانت الصفحات المتأثرة مرتبطة بمنتجات أو تصنيفات سبق أن كانت موجودة على الموقع.</p>
+
+                    <!-- Proof Screenshots: Screaming Frog -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 my-6">
+                        <div class="p-3 rounded-2xl bg-black/60 border border-orange-500/40 text-center">
+                            <p class="text-orange-300 text-xs font-semibold mb-2">إثبات Screaming Frog (1)</p>
+                            <div class="overflow-hidden rounded-xl border border-orange-500/30 transition-transform hover:scale-105 cursor-pointer" onclick="openModal('https://i.ibb.co/234SWJcp/Chat-GPT-Image-Nov-10-2026-01-40-36-PM.png', 'إثبات Screaming Frog (1)')">
+                                <img src="https://i.ibb.co/234SWJcp/Chat-GPT-Image-Nov-10-2026-01-40-36-PM.png" alt="Screaming Frog Proof 1" class="w-full h-56 object-cover rounded-xl pointer-events-none" />
+                            </div>
+                        </div>
+                        <div class="p-3 rounded-2xl bg-black/60 border border-orange-500/40 text-center">
+                            <p class="text-orange-300 text-xs font-semibold mb-2">إثبات Screaming Frog (2)</p>
+                            <div class="overflow-hidden rounded-xl border border-orange-500/30 transition-transform hover:scale-105 cursor-pointer" onclick="openModal('https://i.ibb.co/MkWBhPJ8/Chat-GPT-Image-Nov-10-2026-01-40-56-PM.png', 'إثبات Screaming Frog (2)')">
+                                <img src="https://i.ibb.co/MkWBhPJ8/Chat-GPT-Image-Nov-10-2026-01-40-56-PM.png" alt="Screaming Frog Proof 2" class="w-full h-56 object-cover rounded-xl pointer-events-none" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="space-y-4">
+                        <div class="p-4 rounded-xl bg-black/40 border border-orange-500/20">
+                <!-- 6. Social Media -->
+                <div class="inner-item p-6 rounded-2xl">
+                    <h3 class="text-xl font-bold text-orange-400 mb-3">6. تحليل حسابات التواصل الاجتماعي</h3>
+                    <p class="text-slate-300 mb-4">يمتلك NAVAL حضورًا على منصات التواصل الاجتماعي، وتظهر البيانات المتاحة قاعدة جماهيرية كبيرة على Instagram، إلى جانب وجود حساب نشط على TikTok.</p>
+
+                    <!-- Proof Screenshots: Social Blade -->
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 my-6">
+                        <div class="p-3 rounded-2xl bg-black/60 border border-orange-500/40 text-center">
+                            <p class="text-orange-300 text-xs font-semibold mb-2">إثبات Social Blade (1)</p>
+                            <div class="overflow-hidden rounded-xl border border-orange-500/30 transition-transform hover:scale-105 cursor-pointer" onclick="openModal('https://i.ibb.co/dsKtYDTz/Chat-GPT-Image-Nov-10-2026-01-41-11-PM.png', 'إثبات Social Blade (1)')">
+                                <img src="https://i.ibb.co/dsKtYDTz/Chat-GPT-Image-Nov-10-2026-01-41-11-PM.png" alt="Social Blade Proof 1" class="w-full h-48 object-cover rounded-xl pointer-events-none" />
+                            </div>
+                        </div>
+                        <div class="p-3 rounded-2xl bg-black/60 border border-orange-500/40 text-center">
+                            <p class="text-orange-300 text-xs font-semibold mb-2">إثبات Social Blade (2)</p>
+                            <div class="overflow-hidden rounded-xl border border-orange-500/30 transition-transform hover:scale-105 cursor-pointer" onclick="openModal('https://i.ibb.co/0jkvQLMT/Chat-GPT-Image-Nov-10-2026-01-41-29-PM.png', 'إثبات Social Blade (2)')">
+                                <img src="https://i.ibb.co/0jkvQLMT/Chat-GPT-Image-Nov-10-2026-01-41-29-PM.png" alt="Social Blade Proof 2" class="w-full h-48 object-cover rounded-xl pointer-events-none" />
+                            </div>
+                        </div>
+                        <div class="p-3 rounded-2xl bg-black/60 border border-orange-500/40 text-center">
+                            <p class="text-orange-300 text-xs font-semibold mb-2">إثبات Social Blade (3)</p>
+                            <div class="overflow-hidden rounded-xl border border-orange-500/30 transition-transform hover:scale-105 cursor-pointer" onclick="openModal('https://i.ibb.co/x8syg5Lk/Chat-GPT-Image-Nov-10-2026-01-41-48-PM.png', 'إثبات Social Blade (3)')">
+                                <img src="https://i.ibb.co/x8syg5Lk/Chat-GPT-Image-Nov-10-2026-01-41-48-PM.png" alt="Social Blade Proof 3" class="w-full h-48 object-cover rounded-xl pointer-events-none" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="space-y-4">
+                        <div class="p-4 rounded-xl bg-black/40 border border-orange-500/20">
+                            <h4 class="font-bold text-orange-300 mb-1">ثانيًا: تحليل TikTok</h4>
+                            <p class="text-slate-300 text-sm mb-2">يظهر الحساب امتلاكه حوالي 9,300 متابع، و63,100 إعجاب، مع 160 فيديو منشورًا. وهذا يوفر أساسًا يمكن البناء عليه لتطوير حضور العلامة على المنصة. وتوجد فرصة لتحويل TikTok إلى قناة لاكتشاف المنتجات وبناء الرغبة الشرائية، من خلال فيديوهات قصيرة متنوعة بدلًا من الاعتماد على المحتوى الإعلاني المباشر فقط.</p>
+                            <p class="text-orange-300 text-sm font-semibold mb-1">أفكار المحتوى المقترحة</p>
+                            <ul class="list-disc list-inside space-y-1 text-slate-300 text-sm mr-4">
+                                <li>عرض تفاصيل المنتجات والتصاميم.</li>
+                                <li>فيديوهات تنسيق المجوهرات مع الملابس.</li>
+                                <li>اقتراحات الهدايا حسب المناسبات.</li>
+                                <li>عرض المنتجات الأكثر مبيعًا.</li>
+                                <li>فيديوهات توضح الفرق بين أنواع المجوهرات.</li>
+                                <li>تصوير المنتجات أثناء الاستخدام.</li>
+                                <li>محتوى خلف الكواليس المرتبط بتجهيز الطلبات والتغليف.</li>
+                                <li>محتوى يجيب عن أسئلة العملاء المتكررة.</li>
+                            </ul>
+                        </div>
+
+                        <div class="p-4 rounded-xl bg-black/40 border border-orange-500/20">
+                            <h4 class="font-bold text-orange-300 mb-1">ثالثًا: متابعة نمو Instagram</h4>
+                            <p class="text-slate-300 text-sm mb-2">توضح البيانات اليومية خلال الفترة من 28 أكتوبر إلى 10 نوفمبر 2026 انخفاض عدد المتابعين من 110,085 إلى 110,037، أي تراجع صافي قدره 48 متابعًا. ويعتبر هذا التراجع محدودًا من حيث الحجم، ولا يكفي وحده للحكم على أداء الحساب.</p>
+                            <p class="text-slate-300 text-sm mb-2">لكنه يستدعي متابعة معدل نمو الجمهور وجودة المحتوى بصورة شهرية، ودراسة أسباب اكتساب المتابعين وفقدانهم.</p>
+                            <p class="text-orange-400 text-sm font-bold">التوصية: بناء استراتيجية محتوى تركز على المشاهدات والمشاركات والحفظ وزيارات صفحات المنتجات، وليس نمو عدد المتابعين فقط.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 7. Similarweb -->
+                <div class="inner-item p-6 rounded-2xl">
+                    <h3 class="text-xl font-bold text-orange-400 mb-3">7. تحليل الزيارات وسلوك المستخدم – Similarweb</h3>
+                    <p class="text-slate-300 mb-4">تشير بيانات Similarweb إلى أن عدد الزيارات الشهرية التقديرية خلال أكتوبر 2026 يبلغ حوالي 3,800 زيارة. كما يظهر معدل ارتداد بنسبة 31.75%، ومتوسط 1.92 صفحة لكل زيارة، ومتوسط مدة زيارة يبلغ 20 ثانية.</p>
+
+                    <!-- Proof Screenshot: Similarweb -->
+                    <div class="my-6 p-3 rounded-2xl bg-black/60 border border-orange-500/40 text-center">
+                        <p class="text-orange-300 text-xs font-semibold mb-2">إثبات نتيجة تحليل Similarweb (اضغط للتكبير بالحجم الكامل)</p>
+                        <div class="overflow-hidden rounded-xl border border-orange-500/30 transition-transform hover:scale-[1.01] cursor-pointer" onclick="openModal('https://i.ibb.co/nqJLGgY3/Chat-GPT-Image-Nov-10-2026-01-42-07-PM.png', 'إثبات نتيجة تحليل Similarweb')">
+                            <img src="https://i.ibb.co/nqJLGgY3/Chat-GPT-Image-Nov-10-2026-01-42-07-PM.png" alt="Similarweb Proof" class="w-full h-auto object-cover max-h-[450px] mx-auto rounded-xl pointer-events-none" />
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 my-4">
+                        <div class="p-4 rounded-xl bg-black/40 border border-orange-500/20">
+                            <h4 class="font-bold text-orange-300 mb-1">أولًا: الزيارات الشهرية</h4>
+                            <p class="text-slate-300 text-sm">تعكس الزيارات الشهرية حجم الحركة التقديري على الموقع. وتحتاج هذه الزيارات إلى تحليل من حيث مصادرها وتوزيعها، وتحديد نسبة الزيارات القادمة من البحث العضوي والحملات الإعلانية والتواصل الاجتماعي والإحالات المباشرة.</p>
+                        </div>
+                        <div class="p-4 rounded-xl bg-black/40 border border-orange-500/20">
+                            <h4 class="font-bold text-orange-300 mb-1">ثانيًا: Bounce Rate – 31.75%</h4>
+                            <p class="text-slate-300 text-sm">يقيس هذا المؤشر سلوك الجلسات التي لا تتضمن تفاعلًا إضافيًا وفق تعريف الأداة المستخدمة. ولا يصح الحكم على هذا المعدل بأنه سلبي أو إيجابي بصورة منفردة، بل يجب ربطه بنوع صفحات الدخول ومصادر الزيارات وسلوك المستخدم داخل الموقع.</p>
+                        </div>
+                        <div class="p-4 rounded-xl bg-black/40 border border-orange-500/20">
+                            <h4 class="font-bold text-orange-300 mb-1">ثالثًا: Pages per Visit – 1.92</h4>
+                            <p class="text-slate-300 text-sm">يعني هذا المؤشر أن المستخدم يتصفح أقل من صفحتين في المتوسط خلال الزيارة. وهذا يفتح مجالًا لتحسين الربط بين صفحات التصنيفات والمنتجات، وتوفير توصيات للمنتجات المرتبطة، وتسهيل الانتقال بين المجموعات.</p>
+                        </div>
+                        <div class="p-4 rounded-xl bg-black/40 border border-orange-500/20">
+                            <h4 class="font-bold text-orange-300 mb-1">رابعًا: Average Visit Duration – 20 ثانية</h4>
+                            <p class="text-slate-300 text-sm">تشير مدة الزيارة إلى أن المستخدم يقضي وقتًا محدودًا نسبيًا في تصفح المتجر. ومن الممكن أن ترتبط هذه النتيجة بسرعة تحميل الموقع، أو طبيعة صفحات الدخول، أو وضوح المعلومات والصور ودعوات اتخاذ الإجراء.</p>
+                        </div>
+                    </div>
+
+                    <p class="text-orange-300 font-bold mb-2">التوصيات</p>
+                    <ul class="list-disc list-inside space-y-1.5 text-slate-300 text-sm mr-4 mb-4">
+                        <li>تحسين الربط الداخلي بين المنتجات والتصنيفات.</li>
+                        <li>تطوير طريقة عرض المنتجات الأكثر مبيعًا.</li>
+                        <li>إضافة أقسام للمنتجات المشابهة والمكملة.</li>
+                        <li>تحسين الصور والفيديوهات داخل صفحات المنتجات.</li>
+                        <li>إضافة معلومات واضحة عن الشحن والاسترجاع والضمان.</li>
+                        <li>إبراز أزرار الشراء والإضافة إلى السلة.</li>
+                        <li>تحسين صفحات الهبوط المستخدمة في الحملات الإعلانية.</li>
+                        <li>مراجعة سلوك المستخدم باستخدام أدوات التحليل الفعلية.</li>
+                    </ul>
+                    <p class="text-orange-400 text-sm font-bold">الاستنتاج: توجد فرصة لتحسين عمق التصفح وزيادة الوقت الذي يقضيه الزائر في استكشاف المنتجات، مع قياس ذلك إلى جانب معدل الإضافة إلى السلة والشراء.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3 -->
+        <section class="content-card p-8 rounded-3xl shadow-xl motion-fade-in">
+            <h2 class="text-2xl font-black text-orange-500 mb-4 pb-2 border-b-2 border-orange-500/50 inline-block">ثالثًا: التحليل التجاري وتجربة المستخدم لمتجر NAVAL</h2>
+            <p class="text-slate-300 mb-6">عند مراجعة الموقع من الناحية التجارية، تظهر مجموعة من نقاط القوة التي يمكن البناء عليها، بجانب عدد من فرص التطوير التي قد تساعد في تحسين معدلات التحويل وزيادة قيمة الطلبات.</p>
+
+            <div class="space-y-6">
+                <div class="inner-item p-5 rounded-xl">
+                    <h3 class="font-bold text-orange-400 mb-2">1. نقاط القوة الحالية</h3>
+                    <ul class="list-disc list-inside space-y-1.5 text-slate-300 text-sm mr-4">
+                        <li>تنوع واضح في التصنيفات، مثل الخواتم والعقود والأساور والأقراط والخلاخيل والمجموعات الرجالية ومنتجات الأطفال.</li>
+                        <li>وجود مجموعات تحمل أسماء وهوية خاصة، مثل SOLITAIRE وTHE PEARL وVIVIAN وDANCING DIAMOND وTHE CHAINS.</li>
+                        <li>تخصيص مساحة للمنتجات الأكثر مبيعًا، ما يسهل توجيه المستخدم إلى المنتجات التي تحظى باهتمام أكبر.</li>
+                        <li>إتاحة الأسعار وأزرار إضافة المنتجات إلى السلة داخل صفحات المنتجات.</li>
+                        <li>وجود مرشحات لترتيب المنتجات وتحديد النطاق السعري.</li>
+                        <li>وجود قائمة للمقالات التثقيفية التي تخدم محركات البحث.</li>
+                        <li>توفير معلومات عن الشحن والاستبدال والاسترجاع والعناية بالمنتجات والمقاسات.</li>
+                        <li>وجود خاصية إعلام العميل عند عودة المنتج غير المتوفر للمخزون.</li>
+                    </ul>
+                </div>
+
+                <div class="inner-item p-5 rounded-xl">
+                    <h3 class="font-bold text-orange-400 mb-2">2. فرص تطوير صفحات المنتجات</h3>
+                    <p class="text-slate-300 text-sm mb-2">ينبغي أن تكون كل صفحة منتج بمثابة مندوب مبيعات رقمي متكامل، بحيث تجيب عن الأسئلة التي قد تمنع العميل من اتخاذ قرار الشراء. ومن أهم المعلومات التي يجب إبرازها:</p>
+                    <ul class="list-disc list-inside space-y-1.5 text-slate-300 text-sm mr-4">
+                        <li>نوع المعدن والعيار.</li>
+                        <li>نوع الحجر الكريم أو الألماس.</li>
+                        <li>الوزن والمقاسات والأبعاد.</li>
+                        <li>مواصفات الحجر وشهادات التوثيق عند توافرها.</li>
+                        <li>صور متعددة وزوايا قريبة للمنتج.</li>
+                        <li>فيديو قصير يوضح شكل المنتج عند الاستخدام.</li>
+                        <li>تفاصيل الشحن والتوصيل.</li>
+                        <li>سياسة الاستبدال والاسترجاع والضمان.</li>
+                        <li>تقييمات العملاء وتجاربهم.</li>
+                        <li>تعليمات العناية بالمنتج.</li>
+                    </ul>
+                    <p class="text-slate-300 text-sm mt-3">كما يجب الاهتمام بعرض المعلومات بصورة منظمة، بحيث يستطيع العميل الوصول إلى المواصفات المهمة بسهولة دون الحاجة إلى التواصل مع خدمة العملاء للحصول على معلومات أساسية.</p>
+                </div>
+
+                <div class="inner-item p-5 rounded-xl">
+                    <h3 class="font-bold text-orange-400 mb-2">3. تطوير مسار الشراء</h3>
+                    <p class="text-slate-300 text-sm mb-2">يجب تقليل الخطوات اللازمة للانتقال من مشاهدة المنتج إلى إتمام الطلب. ويشمل ذلك:</p>
+                    <ul class="list-disc list-inside space-y-1.5 text-slate-300 text-sm mr-4">
+                        <li>تسهيل اختيار المقاسات والخيارات المتاحة.</li>
+                        <li>إبراز زر الإضافة إلى السلة.</li>
+                        <li>توضيح تكاليف الشحن قبل الوصول إلى المراحل النهائية.</li>
+                        <li>إظهار وسائل الدفع المتاحة.</li>
+                        <li>تبسيط خطوات إدخال بيانات الطلب.</li>
+                        <li>توفير معلومات واضحة عن مدة التوصيل.</li>
+                        <li>تسهيل العودة إلى المنتجات التي تمت مشاهدتها سابقًا.</li>
+                    </ul>
+                </div>
+
+                <div class="inner-item p-5 rounded-xl">
+                    <h3 class="font-bold text-orange-400 mb-2">4. تحسين البيع الإضافي</h3>
+                    <p class="text-slate-300 text-sm mb-2">يمكن زيادة متوسط قيمة الطلب من خلال عرض منتجات مكملة للمنتج الذي يشاهده العميل. ومن الأمثلة:</p>
+                    <ul class="list-disc list-inside space-y-1.5 text-slate-300 text-sm mr-4">
+                        <li>عرض قطع من المجموعة نفسها.</li>
+                        <li>اقتراح منتجات مناسبة للإهداء.</li>
+                        <li>عرض أطقم متناسقة.</li>
+                        <li>عرض منتجات مشابهة في السعر والتصميم.</li>
+                        <li>تقديم اقتراحات إضافية مرتبطة بالمناسبة التي يشتري العميل من أجلها.</li>
+                    </ul>
+                </div>
+
+                <div class="inner-item p-5 rounded-xl">
+                    <h3 class="font-bold text-orange-400 mb-2">5. زيادة الثقة</h3>
+                    <p class="text-slate-300 text-sm mb-2">في قطاع المجوهرات، تعتبر الثقة عاملًا أساسيًا في قرار الشراء. لذلك يجب تعزيز ظهور معلومات الضمان والأصالة والخامات وسياسات التعامل مع المنتجات، وإبراز خدمات الدعم بعد الشراء بصورة واضحة.</p>
+                    <p class="text-slate-300 text-sm">كما يجب الاهتمام بتقييمات العملاء وتجاربهم، وإظهار تفاصيل التغليف وسياسات الاسترجاع وخدمات الصيانة عند توافرها.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 4 -->
+        <section class="content-card p-8 rounded-3xl shadow-xl motion-fade-in">
+            <h2 class="text-2xl font-black text-orange-500 mb-4 pb-2 border-b-2 border-orange-500/50 inline-block">رابعًا: التحليل التنافسي للموقع</h2>
+            <p class="text-slate-300 mb-6">تتمثل أهمية تحليل المنافسين في فهم كيفية تقديم كل علامة تجارية لقيمتها للعملاء، والوسائل التي تستخدمها لتعزيز الثقة وزيادة المبيعات. المقارنة هنا ليست مقارنة في حجم المبيعات أو الحصة السوقية، وإنما مقارنة في التموضع التجاري وتجربة التسوق والخدمات والحضور الرقمي.</p>
+
+            <div class="space-y-8">
+                <!-- Competitor 1 -->
+                <div class="inner-item p-6 rounded-2xl">
+                    <h3 class="text-xl font-bold text-orange-400 mb-3">1. المنافس الأول: Kooheji Jewellery</h3>
+                    
+                    <h4 class="font-bold text-orange-300 mb-1 text-sm">أولًا: التموضع التجاري للعلامة</h4>
+                    <p class="text-slate-300 text-sm mb-3">تتمتع Kooheji Jewellery بتاريخ تجاري يمتد إلى عام 1952، وتقدم نفسها باعتبارها علامة متخصصة في المجوهرات الفاخرة والألماس الطبيعي، مع التركيز على الحرفية والجودة والتصاميم الراقية. وتستهدف العلامة شريحة العملاء المهتمين بالمجوهرات الفاخرة، خصوصًا منتجات الألماس ومجموعات الزفاف والخطوبة.</p>
+
+                    <h4 class="font-bold text-orange-300 mb-1 text-sm">ثانيًا: نقاط القوة في الموقع وتجربة العملاء</h4>
+                    <ul class="space-y-3 text-slate-300 text-sm mr-4 mb-4">
+                        <li><strong>1. بناء الثقة من خلال التاريخ التجاري:</strong> تستستخدم العلامة تاريخها الممتد لسنوات طويلة كعنصر أساسي في بناء الثقة والمصداقية. ويساعد هذا الإرث التجاري على تعزيز ثقة العملاء، خصوصًا في المنتجات مرتفعة القيمة التي تحتاج إلى مستوى عالٍ من المصداقية.</li>
+                        <li><strong>2. التركيز على الألماس الطبيعي:</strong> توضح العلامة اهتمامها بجودة الألماس ومعايير اختياره وتوثيقه، وتبرز عوامل الجودة المرتبطة بالقطع واللون والنقاء والقيراط. وهذا يمنحها تموضعًا متخصصًا في قطاع المجوهرات الفاخرة.</li>
+                        <li><strong>3. تجربة شراء تتجاوز المتجر الإلكتروني:</strong> من المميزات الواضحة وجود خدمات مساندة لقرار الشراء، مثل:
+                            <ul class="list-disc list-inside mr-6 mt-1 text-xs space-y-1">
+                                <li>خدمة تحديد مقاس الخاتم.</li>
+                                <li>حجز مواعيد خاصة داخل الفروع.</li>
+                                <li>استشارات مع متخصصي المجوهرات.</li>
+                                <li>خدمات ما بعد البيع.</li>
+                                <li>تغليف الهدايا.</li>
+                                <li>خدمات التوصيل.</li>
+                                <li>سياسات الاستبدال وفق الشروط المنشورة.</li>
+                            </ul>
+                        </li>
+                        <li><strong>4. الانتشار الجغرافي:</strong> تتمتع العلامة بحضور في أسواق خليجية رئيسية، وتتيح وجود الفروع للعميل إمكانية الربط بين التسوق الإلكتروني والزيارة الفعلية للمتجر. وهذا يعزز الثقة ويمنح العملاء خيارات متعددة قبل الشراء.</li>
+                        <li><strong>5. الاهتمام بمحتوى المناسبات:</strong> تعطي العلامة اهتمامًا واضحًا لمجموعات الخطوبة والزفاف، وتقدم محتوى وخدمات موجهة لهذا النوع من العملاء. وهو ما يمنحها تموضعًا متخصصًا في فئة ذات قيمة شرائية مرتفعة.</li>
+                    </ul>
+
+                    <h4 class="font-bold text-orange-300 mb-1 text-sm">ثالثًا: ماذا يمكن أن نتعلم من Kooheji؟</h4>
+                    <ul class="list-disc list-inside space-y-1 text-slate-300 text-sm mr-4 mb-3">
+                        <li>بناء الثقة حول المنتج قبل محاولة البيع.</li>
+                        <li>تحويل خدمات ما بعد البيع إلى عنصر تسويقي.</li>
+                        <li>تقديم استشارات متخصصة تقلل تردد العميل.</li>
+                        <li>الاهتمام بتجربة العميل داخل المتجر وخارجه.</li>
+                        <li>بناء صفحات مخصصة لكل شريحة ومناسبة شرائية.</li>
+                        <li>استخدام تاريخ العلامة وقصتها كجزء من الهوية التجارية.</li>
+                        <li>توضيح مواصفات المنتجات بصورة تعزز ثقة العملاء.</li>
+                    </ul>
+
+                    <h4 class="font-bold text-orange-400 text-sm font-bold">رابعًا: الفرصة التنافسية أمام NAVAL</h4>
+                    <p class="text-slate-300 text-sm">يمكن لـ NAVAL الاستفادة من هذه التجربة من خلال تطوير محتوى متخصص يشرح جودة المنتجات والخامات والأحجار، وتقديم استشارات للشراء عبر القنوات الرقمية، مع إبراز خدمات ما بعد البيع. ولا يُنصح بمحاولة منافسة Kooheji على التاريخ التجاري أو شبكة الفروع بصورة مباشرة، بل الأفضل التميز في تجربة التجارة الإلكترونية، وتنوع المجموعات، وسهولة اكتشاف المنتجات والشراء.</p>
+                </div>
+
+                <!-- Competitor 2 -->
+                <div class="inner-item p-6 rounded-2xl">
+                    <h3 class="text-xl font-bold text-orange-400 mb-3">2. المنافس الثاني: Fayendra</h3>
+                    
+                    <h4 class="font-bold text-orange-300 mb-1 text-sm">أولًا: التموضع التجاري للعلامة</h4>
+                    <p class="text-slate-300 text-sm mb-3">تتمتع فايندرا بتاريخ تجاري طويل، وتشير قصة العلامة إلى أن بدايتها تعود إلى عام 1935 في بيروت. وتتمحور هويتها حول المجوهرات الفضية المرصعة بالأحجار البراقة، مع تقديم مجموعات للنساء والرجال بالإضافة إلى الساعات والهدايا.</p>
+
+                    <h4 class="font-bold text-orange-300 mb-1 text-sm">ثانيًا: نقاط القوة في الموقع وتجربة العملاء</h4>
+                    <ul class="space-y-3 text-slate-300 text-sm mr-4 mb-4">
+                        <li><strong>1. الانتشار الجغرافي:</strong> تتمتع العلامة بحضور جغرافي في السعودية والإمارات من خلال شبكة من المتاجر الفعلية. ويساعد هذا الانتشار على تعزيز حضور العلامة وإتاحة الوصول إلى المنتجات من خلال الفروع إلى جانب المتجر الإلكتروني.</li>
+                        <li><strong>2. سهولة التسوق:</strong> يقدم الموقع تصنيفات مباشرة للمجوهرات النسائية والرجالية، إلى جانب أقسام للقلائد والساعات والهدايا. كما يتيح استعراض المنتجات والأسعار والعروض بصورة واضحة.</li>
+                        <li><strong>3. تنشيط المبيعات بالعروض:</strong> يظهر استخدام الخصومات الترويجية بصورة واضحة ضمن المنتجات المعروضة. ويساعد ذلك على تحفيز قرار الشراء، خصوصًا للعملاء الأكثر حساسية للسعر والعروض الموسمية.</li>
+                        <li><strong>4. دعم سرعة التوصيل:</strong> يبرز الموقع خدمة التوصيل السريع داخل بعض المناطق، ومن أمثلتها الرياض. وتمثل سرعة التوصيل ميزة تسويقية يمكن الاستفادة منها في الحملات الإعلانية لتحفيز الشراء.</li>
+                        <li><strong>5. تنوع وسائل الدفع:</strong> يعرض الموقع عدة وسائل دفع إلكترونية، بما يوفر بدائل مختلفة للعملاء ويساعد على تقليل عوائق إتمام الطلب.</li>
+                        <li><strong>6. خدمة العملاء وما بعد البيع:</strong> يتضمن الموقع أقسامًا للتسليم والإرجاع والضمان، وتتبع طلبات الصيانة، وآراء العملاء، والعثور على المتاجر. كما يوفر خيارات للتواصل مع العملاء من خلال النشرة البريدية.</li>
+                    </ul>
+
+                    <h4 class="font-bold text-orange-300 mb-1 text-sm">ثالثًا: ماذا يمكن أن نتعلم من Fayendra؟</h4>
+                    <ul class="list-disc list-inside space-y-1 text-slate-300 text-sm mr-4 mb-3">
+                        <li>الاستفادة من تاريخ العلامة في التسويق وبناء المصداقية.</li>
+                        <li>استخدام العروض بصورة منظمة لتحفيز المبيعات.</li>
+                        <li>إبراز سرعة التوصيل كميزة تنافسية.</li>
+                        <li>توفير وسائل دفع متنوعة.</li>
+                        <li>دمج الفروع الفعلية مع المتجر الإلكتروني.</li>
+                        <li>الاهتمام بخدمات الصيانة والضمان بعد الشراء.</li>
+                        <li>توظيف مواسم الهدايا والمناسبات في التسويق.</li>
+                        <li>تطوير تجربة التسوق لتكون سهلة ومباشرة.</li>
+                    </ul>
+
+                    <h4 class="font-bold text-orange-400 text-sm font-bold">رابعًا: الفرصة التنافسية أمام NAVAL</h4>
+                    <p class="text-slate-300 text-sm">تستطيع NAVAL الاستفادة من نقاط القوة هذه عن طريق إبراز سرعة التوصيل، ووسائل الدفع المتاحة فعليًا، والعروض الموسمية، وتجربة ما بعد الشراء. كما يمكنها بناء حملات خاصة بالمناسبات والهدايا، مع ربط كل حملة بمجموعة منتجات وصفحة هبوط مخصصة.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 5 -->
+        <section class="content-card p-8 rounded-3xl shadow-xl motion-fade-in">
+            <h2 class="text-2xl font-black text-orange-500 mb-4 pb-2 border-b-2 border-orange-500/50 inline-block">خامسًا: المقارنة التنافسية بين NAVAL وKooheji وFayendra</h2>
+            <p class="text-slate-300 mb-6">تختلف طبيعة القيمة التي تقدمها كل علامة تجارية، وهو ما يمنح NAVAL فرصة لتحديد موقع تنافسي واضح بدلًا من محاولة تقليد المنافسين.</p>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+                <div class="inner-item p-5 rounded-2xl border-t-4 border-orange-500">
+                    <h3 class="font-bold text-orange-400 text-lg mb-2">NAVAL</h3>
+                    <p class="text-slate-300 text-sm">تعتمد على تنوع المنتجات والمجموعات الخاصة والحضور الرقمي، وتمتلك فرصة لتعزيز مكانتها من خلال تطوير تجربة التسوق الإلكترونية وتحسين صفحات المنتجات والظهور العضوي.</p>
+                </div>
+                <div class="inner-item p-5 rounded-2xl border-t-4 border-amber-500">
+                    <h3 class="font-bold text-amber-400 text-lg mb-2">Kooheji Jewellery</h3>
+                    <p class="text-slate-300 text-sm">تعتمد على التاريخ التجاري والخبرة في المجوهرات الفاخرة والألماس الطبيعي، إلى جانب خدمات الاستشارات وما بعد البيع والانتشار الجغرافي.</p>
+                </div>
+                <div class="inner-item p-5 rounded-2xl border-t-4 border-yellow-500">
+                    <h3 class="font-bold text-yellow-400 text-lg mb-2">Fayendra</h3>
+                    <p class="text-slate-300 text-sm">تعتمد على الانتشار الجغرافي وتنوع المنتجات والخدمات والعروض الترويجية، مع التركيز على سهولة التسوق والتوصيل وخيارات الدفع.</p>
+                </div>
+            </div>
+
+            <div class="p-5 rounded-2xl bg-black/40 border border-orange-500/30">
+                <h3 class="font-bold text-orange-400 mb-3">القراءة الاستراتيجية للمنافسة</h3>
+                <p class="text-slate-300 text-sm mb-3">تتمثل أبرز الدروس المستفادة في الآتي:</p>
+                <ul class="list-disc list-inside space-y-1.5 text-slate-300 text-sm mr-4 mb-4">
+                    <li>Kooheji تنافس من خلال الثقة والتاريخ والخبرة في المجوهرات الفاخرة.</li>
+                    <li>Fayendra تنافس من خلال الانتشار وتنوع المنتجات وسهولة الشراء والعروض.</li>
+                    <li>NAVAL تمتلك فرصة لتعزيز موقعها من خلال تنوع المنتجات والمجموعات وتجربة التسوق الرقمية.</li>
+                </ul>
+                <p class="text-slate-300 text-sm leading-relaxed">
+                    وبالتالي فإن أفضل استراتيجية لـ NAVAL ليست تقليد عروض المنافسين أو محاولة منافستهم في جميع الجوانب، وإنما تطوير هوية رقمية وتجارية واضحة تجعل عملية اكتشاف المنتجات وشرائها أكثر سهولة وثقة.
+                </p>
+            </div>
+        </section>
+
+        <!-- Section 6 -->
+        <section class="content-card p-8 rounded-3xl shadow-xl motion-fade-in">
+            <h2 class="text-2xl font-black text-orange-500 mb-4 pb-2 border-b-2 border-orange-500/50 inline-block">سادسًا: تحليل SWOT لمتجر NAVAL</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+                <!-- Strengths -->
+                <div class="inner-item p-6 rounded-2xl border-t-4 border-green-500">
+                    <h3 class="font-bold text-green-400 text-lg mb-3">1. Strengths – نقاط القوة</h3>
+                    <ul class="space-y-2 text-slate-300 text-sm">
+                        <li>• امتلاك قاعدة كبيرة نسبيًا من المتابعين على Instagram تتجاوز 110 آلاف متابع.</li>
+                        <li>• تنوع التصنيفات والمنتجات والمجموعات، بما يسمح باستهداف شرائح مختلفة.</li>
+                        <li>• وجود حضور عضوي جيد في محركات البحث.</li>
+                        <li>• امتلاك قاعدة من الروابط الخارجية والنطاقات المحيلة.</li>
+                        <li>• وجود مدونة ومحتوى معلوماتي يخدم اكتشاف العلامة في محركات البحث.</li>
+                        <li>• توفير صفحات للمنتجات الأكثر مبيعًا والمنتجات الجديدة.</li>
+                        <li>• وجود عناصر أساسية في تجربة المتجر الإلكتروني، مثل التصنيفات والفلترة والأسعار وإضافة المنتجات إلى السلة.</li>
+                        <li>• وجود حساب على TikTok يمكن تطويره ليصبح قناة إضافية لاكتساب العملاء.</li>
+                        <li>• وجود فرص للتوسع من خلال المجموعات المتنوعة والمنتجات المرتبطة بالمناسبات والهدايا.</li>
+                    </ul>
+                </div>
+
+                <!-- Weaknesses -->
+                <div class="inner-item p-6 rounded-2xl border-t-4 border-red-500">
+                    <h3 class="font-bold text-red-400 text-lg mb-3">2. Weaknesses – نقاط الضعف</h3>
+                    <ul class="space-y-2 text-slate-300 text-sm">
+                        <li>• انخفاض تقييم أداء الموقع على الهاتف إلى 39 من 100.</li>
+                        <li>• ارتفاع وقت تحميل أكبر عنصر محتوى إلى 15.7 ثانية.</li>
+                        <li>• ارتفاع مؤشر Total Blocking Time إلى 850 مللي ثانية.</li>
+                        <li>• وجود صفحات 404 ضمن نتائج الزحف.</li>
+                        <li>• وجود مؤشرات تستدعي مراجعة تكرار وتعدد عناوين الصفحات.</li>
+                        <li>• التركيز الكبير على الكلمات المعلوماتية مقارنة بالكلمات التجارية والشرائية.</li>
+                        <li>• انخفاض معدل التفاعل الظاهر على Instagram إلى 0.19%.</li>
+                        <li>• محدودية متوسط عدد الصفحات التي يتصفحها المستخدم ومدة الزيارة وفق تقديرات Similarweb.</li>
+                        <li>• الحاجة إلى تطوير صفحات المنتجات من حيث المحتوى والمواصفات والعناصر التي تعزز الثقة.</li>
+                        <li>• الحاجة إلى تحسين الربط بين المحتوى التسويقي وصفحات المنتجات ومسار الشراء.</li>
+                    </ul>
+                </div>
+
+                <!-- Opportunities -->
+                <div class="inner-item p-6 rounded-2xl border-t-4 border-blue-500">
+                    <h3 class="font-bold text-blue-400 text-lg mb-3">3. Opportunities – الفرص</h3>
+                    <ul class="space-y-2 text-slate-300 text-sm">
+                        <li>• تحسين سرعة الموقع وتجربة الهاتف ورفع كفاءة رحلة الشراء.</li>
+                        <li>• زيادة الظهور في الكلمات المفتاحية المرتبطة بالشراء والمنتجات.</li>
+                        <li>• تحويل المقالات المعلوماتية إلى مصادر للزيارات والمبيعات.</li>
+                        <li>• استغلال قاعدة المتابعين الحالية في حملات إعادة الاستهداف.</li>
+                        <li>• تطوير استراتيجية TikTok وInstagram Reels.</li>
+                        <li>• الاستفادة من مواسم الهدايا والمناسبات في حملات متخصصة.</li>
+                        <li>• تطوير صفحات المنتجات بمعلومات وصور وفيديوهات أكثر تفصيلًا.</li>
+                        <li>• إطلاق حملات Google Search وShopping بحسب أهلية المنتجات والكتالوج.</li>
+                        <li>• زيادة عمليات البيع الإضافي من خلال المنتجات والمجموعات المكملة.</li>
+                        <li>• بناء منظومة CRM للتذكير بالسلال المتروكة وإشعار العملاء عند توفر المنتجات.</li>
+                        <li>• تطوير المحتوى التثقيفي المرتبط بالخامات والأحجار والمجوهرات.</li>
+                        <li>• تحسين رحلة العميل من أول زيارة حتى تكرار الشراء.</li>
+                    </ul>
+                </div>
+
+                <!-- Threats -->
+                <div class="inner-item p-6 rounded-2xl border-t-4 border-yellow-500">
+                    <h3 class="font-bold text-yellow-400 text-lg mb-3">4. Threats – التهديدات</h3>
+                    <ul class="space-y-2 text-slate-300 text-sm">
+                        <li>• المنافسة مع علامات تجارية تمتلك إرثًا تجاريًا وانتشارًا جغرافيًا أقوى.</li>
+                        <li>• ارتفاع توقعات العملاء فيما يتعلق بسرعة المواقع وسهولة الشراء.</li>
+                        <li>• المنافسة على الكلمات المفتاحية التجارية والشرائية.</li>
+                        <li>• الاعتماد المبالغ فيه على الظهور المعلوماتي دون تحقيق عائد تجاري مناسب.</li>
+                        <li>• تأثير ضعف الأداء التقني على كفاءة الحملات وتجربة المستخدم.</li>
+                        <li>• المنافسة السعرية والعروض الموسمية من العلامات الأخرى.</li>
+                        <li>• احتمالية تأثر الزيارات العضوية بتغيرات نتائج محركات البحث.</li>
+                        <li>• ارتفاع تكلفة اكتساب العملاء في قطاع المجوهرات نتيجة المنافسة الإعلانية.</li>
+                        <li>• تغير تفضيلات العملاء واتجاههم نحو التصميمات والعلامات التجارية المختلفة.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 7 -->
+        <section class="content-card p-8 rounded-3xl shadow-xl motion-fade-in">
+            <h2 class="text-2xl font-black text-orange-500 mb-4 pb-2 border-b-2 border-orange-500/50 inline-block">سابعًا: تحليل SWOT للمنافس الأول – Kooheji Jewellery</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+                <div class="inner-item p-6 rounded-2xl border-t-4 border-green-500">
+                    <h3 class="font-bold text-green-400 text-lg mb-3">1. Strengths – نقاط القوة</h3>
+                    <ul class="space-y-2 text-slate-300 text-sm">
+                        <li>• تاريخ تجاري عريق يمتد إلى عام 1952.</li>
+                        <li>• تموضع واضح في قطاع المجوهرات الفاخرة والألماس الطبيعي.</li>
+                        <li>• خبرة متخصصة في مجموعات الزفاف والخطوبة.</li>
+                        <li>• وجود فروع في أسواق خليجية رئيسية.</li>
+                        <li>• خدمات استشارية وخدمات ما بعد البيع.</li>
+                        <li>• خدمات مساعدة في تحديد مقاسات الخواتم.</li>
+                        <li>• تعزيز الثقة من خلال التركيز على الجودة والحرفية والألماس الطبيعي.</li>
+                        <li>• القدرة على الربط بين تجربة التسوق الإلكتروني والخدمات داخل الفروع.</li>
+                    </ul>
+                </div>
+                <div class="inner-item p-6 rounded-2xl border-t-4 border-red-500">
+                    <h3 class="font-bold text-red-400 text-lg mb-3">2. Weaknesses – نقاط الضعف</h3>
+                    <ul class="space-y-2 text-slate-300 text-sm">
+                        <li>• ارتباط جزء من رحلة شراء المجوهرات عالية القيمة بالاستشارات والزيارة الفعلية للفروع.</li>
+                        <li>• تشير طبيعة المعلومات المتاحة عن بعض تفاصيل المنتجات إلى أن العميل قد يحتاج إلى التواصل للحصول على تفاصيل إضافية قبل اتخاذ القرار.</li>
+                        <li>• تموضع العلامة الفاخر والمتخصص قد يجعلها أقل استهدافًا للشرائح الباحثة عن منتجات أقل سعرًا أو مجوهرات يومية متنوعة.</li>
+                        <li>• قد تتطلب المنتجات مرتفعة القيمة وقتًا أطول لاتخاذ قرار الشراء، وهو ما يستلزم توفير تجربة رقمية غنية ومعلومات تفصيلية.</li>
+                    </ul>
+                </div>
+                <div class="inner-item p-6 rounded-2xl border-t-4 border-blue-500">
+                    <h3 class="font-bold text-blue-400 text-lg mb-3">3. Opportunities – الفرص</h3>
+                    <ul class="space-y-2 text-slate-300 text-sm">
+                        <li>• تطوير أدوات الاستشارات الرقمية عن بعد.</li>
+                        <li>• توسيع المحتوى المتخصص في تعليم العملاء عن الألماس.</li>
+                        <li>• تحسين عرض المواصفات والتفاصيل على صفحات المنتجات.</li>
+                        <li>• تطوير تجربة ربط حجز المواعيد باختيار المنتجات عبر الموقع.</li>
+                        <li>• زيادة استخدام البيانات لتخصيص تجربة العملاء.</li>
+                        <li>• التوسع في المحتوى المخصص لمناسبات الزواج والخطوبة.</li>
+                        <li>• تطوير حملات رقمية تستهدف العملاء ذوي النية الشرائية المرتفعة.</li>
+                    </ul>
+                </div>
+                <div class="inner-item p-6 rounded-2xl border-t-4 border-yellow-500">
+                    <h3 class="font-bold text-yellow-400 text-lg mb-3">4. Threats – التهديدات</h3>
+                    <ul class="space-y-2 text-slate-300 text-sm">
+                        <li>• المنافسة مع المتاجر الرقمية التي توفر رحلة شراء أسرع.</li>
+                        <li>• المنافسة على جذب العملاء الباحثين عن المجوهرات الفاخرة.</li>
+                        <li>• ارتفاع توقعات العملاء في الشفافية وتوفير التفاصيل قبل الشراء.</li>
+                        <li>• اعتماد بعض العملاء على مقارنة المنتجات والأسعار عبر الإنترنت قبل زيارة الفروع.</li>
+                        <li>• المنافسة مع العلامات التي تقدم تجارب شراء رقمية أكثر سهولة وتنوعًا.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 8 -->
+        <section class="content-card p-8 rounded-3xl shadow-xl motion-fade-in">
+            <h2 class="text-2xl font-black text-orange-500 mb-4 pb-2 border-b-2 border-orange-500/50 inline-block">ثامنًا: تحليل SWOT للمنافس الثاني – Fayendra</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+                <div class="inner-item p-6 rounded-2xl border-t-4 border-green-500">
+                    <h3 class="font-bold text-green-400 text-lg mb-3">1. Strengths – نقاط القوة</h3>
+                    <ul class="space-y-2 text-slate-300 text-sm">
+                        <li>• تاريخ تجاري طويل وقصة علامة تجارية قوية.</li>
+                        <li>• انتشار جغرافي واسع في السعودية والإمارات.</li>
+                        <li>• تقديم منتجات للنساء والرجال.</li>
+                        <li>• تنوع الفئات بين المجوهرات والساعات والهدايا.</li>
+                        <li>• استخدام العروض والخصومات لتحفيز المبيعات.</li>
+                        <li>• إبراز خدمة التوصيل السريع في بعض المناطق.</li>
+                        <li>• تعدد وسائل الدفع.</li>
+                        <li>• وجود خدمات للصيانة والضمان والعثور على الفروع.</li>
+                        <li>• توفير خيارات متعددة للتواصل مع العملاء.</li>
+                        <li>• سهولة تصفح المنتجات والوصول إلى التصنيفات الرئيسية.</li>
+                    </ul>
+                </div>
+                <div class="inner-item p-6 rounded-2xl border-t-4 border-red-500">
+                    <h3 class="font-bold text-red-400 text-lg mb-3">2. Weaknesses – نقاط الضعف</h3>
+                    <ul class="space-y-2 text-slate-300 text-sm">
+                        <li>• الاعتماد الظاهر على الخصومات في عرض المنتجات قد يجعل السعر عنصرًا بارزًا على حساب إبراز القيمة الحرفية للمنتج.</li>
+                        <li>• بعض وعود التوصيل السريع ترتبط بمناطق محددة، ولا ينبغي افتراض انطباقها على جميع المناطق.</li>
+                        <li>• تنوع الفئات قد يحتاج إلى إدارة دقيقة للهوية والمحتوى حتى تظل هوية العلامة متماسكة وواضحة.</li>
+                        <li>• وجود عرض واسع للمنتجات يتطلب استمرار تحسين التصنيفات وتجربة اكتشاف المنتجات.</li>
+                        <li>• الاعتماد على العروض بصورة مستمرة قد يرفع توقعات بعض العملاء للحصول على خصومات قبل الشراء.</li>
+                    </ul>
+                </div>
+                <div class="inner-item p-6 rounded-2xl border-t-4 border-blue-500">
+                    <h3 class="font-bold text-blue-400 text-lg mb-3">3. Opportunities – الفرص</h3>
+                    <ul class="space-y-2 text-slate-300 text-sm">
+                        <li>• توظيف شبكة الفروع في حملات تسويقية محلية.</li>
+                        <li>• توسيع التسويق الموسمي المرتبط بالهدايا.</li>
+                        <li>• تقديم تجربة موحدة بين الطلب الإلكتروني والزيارة إلى الفروع.</li>
+                        <li>• تطوير برامج ولاء وإعادة شراء.</li>
+                        <li>• زيادة المحتوى المرئي الذي يعرض المنتجات أثناء الاستخدام.</li>
+                        <li>• التوسع في حملات إعادة الاستهداف والتسويق المبني على سلوك العملاء.</li>
+                        <li>• تطوير حملات مخصصة للفئات المختلفة من العملاء.</li>
+                        <li>• الاستفادة من بيانات المبيعات لتخصيص العروض والمنتجات المقترحة.</li>
+                    </ul>
+                </div>
+                <div class="inner-item p-6 rounded-2xl border-t-4 border-yellow-500">
+                    <h3 class="font-bold text-yellow-400 text-lg mb-3">4. Threats – التهديدات</h3>
+                    <ul class="space-y-2 text-slate-300 text-sm">
+                        <li>• المنافسة مع العلامات المتخصصة في الألماس والمجوهرات الفاخرة.</li>
+                        <li>• المنافسة السعرية من متاجر المجوهرات الإلكترونية.</li>
+                        <li>• ارتفاع تكاليف الإعلانات والمنافسة على الجمهور نفسه.</li>
+                        <li>• تغير تفضيلات المستهلكين واتجاههم نحو علامات تقدم تصميمات وتجارب مختلفة.</li>
+                        <li>• اعتماد بعض الحملات على الخصومات بصورة قد تزيد حساسية العملاء للسعر.</li>
+                        <li>• زيادة تكاليف التشغيل والخدمات اللوجستية المرتبطة بالانتشار الجغرافي.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 9 -->
+        <section class="content-card p-8 rounded-3xl shadow-xl motion-fade-in">
+            <h2 class="text-2xl font-black text-orange-500 mb-4 pb-2 border-b-2 border-orange-500/50 inline-block">تاسعًا: الخطة الاستراتيجية المقترحة لتطوير NAVAL</h2>
+            <p class="text-slate-300 mb-6">بناءً على النتائج السابقة، يوصى بتنفيذ التطوير من خلال أربعة مسارات مترابطة، بحيث لا يتم التعامل مع SEO والحملات الإعلانية وتجربة المستخدم باعتبارها خدمات منفصلة.</p>
+
+            <div class="space-y-8">
+                <!-- Track 1 -->
+                <div class="inner-item p-6 rounded-2xl border-2 border-orange-500/40">
+                    <h3 class="text-xl font-bold text-orange-400 mb-2">المسار الأول: التطوير التقني وتجربة المستخدم</h3>
+                    <p class="text-slate-300 text-sm mb-3"><strong>الأولوية:</strong> قصوى &nbsp;|&nbsp; <strong>الهدف:</strong> معالجة العوائق التي تقلل من كفاءة المتجر في استقبال الزيارات وتحويلها إلى عمليات شراء.</p>
+                    <h4 class="font-bold text-orange-300 mb-2 text-sm">الأعمال المقترحة:</h4>
+                    <ul class="list-disc list-inside space-y-1.5 text-slate-300 text-sm mr-4 mb-4">
+                        <li>تنفيذ تحسين شامل لأداء الموقع على الهواتف المحمولة.</li>
+                        <li>معالجة مشكلة LCP وتحسين تحميل الصور الرئيسية.</li>
+                        <li>تحسين سرعة استجابة عناصر الموقع.</li>
+                        <li>معالجة روابط 404 وإعادة توجيه الصفحات التي لها بدائل مناسبة.</li>
+                        <li>مراجعة العناوين الرئيسية المكررة والمتعددة.</li>
+                        <li>تحسين تجربة تصفح التصنيفات والمنتجات.</li>
+                        <li>تطوير صفحات المنتجات من حيث الصور والفيديو والمواصفات.</li>
+                        <li>تحسين خطوات السلة والدفع وتقليل العوائق أمام إتمام الطلب.</li>
+                        <li>مراجعة توافق الموقع مع مختلف أحجام الشاشات.</li>
+                        <li>تحسين تجربة المستخدم داخل صفحات الهبوط المرتبطة بالإعلانات.</li>
+                    </ul>
+                    <h4 class="font-bold text-orange-300 mb-2 text-sm">مؤشرات قياس الأداء:</h4>
+                    <ul class="list-disc list-inside space-y-1 text-slate-300 text-sm mr-4">
+                        <li>تحسن تقييم أداء الموقع.</li>
+                        <li>انخفاض زمن LCP باتجاه 2.5 ثانية أو أقل.</li>
+                        <li>انخفاض عدد الروابط المعطلة.</li>
+                        <li>تحسن التفاعل مع صفحات المنتجات.</li>
+                        <li>ارتفاع معدل الإضافة إلى السلة.</li>
+                        <li>تحسن معدل إتمام الطلبات.</li>
+                        <li>انخفاض التخلي عن السلة.</li>
+                        <li>تحسن سرعة الاستجابة للعناصر التفاعلية.</li>
+                    </ul>
+                </div>
+
+                <!-- Track 2 -->
+                <div class="inner-item p-6 rounded-2xl border-2 border-orange-500/40">
+                    <h3 class="text-xl font-bold text-orange-400 mb-2">المسار الثاني: تحسين محركات البحث SEO</h3>
+                    <p class="text-slate-300 text-sm mb-3"><strong>الهدف:</strong> الاستفادة من قوة الظهور العضوي الحالية، وتوسيع الظهور في الكلمات المفتاحية ذات القيمة التجارية والشرائية.</p>
+                    
+                    <h4 class="font-bold text-orange-300 mb-1 text-sm">أولًا: Technical SEO</h4>
+                    <ul class="list-disc list-inside space-y-1 text-slate-300 text-sm mr-4 mb-3">
+                        <li>مراجعة البنية الفنية للموقع.</li>
+                        <li>معالجة صفحات 404.</li>
+                        <li>تحسين العناوين والأوصاف.</li>
+                        <li>مراجعة H1 وH2.</li>
+                        <li>تحسين الروابط الداخلية.</li>
+                        <li>مراجعة Canonical وSitemap.</li>
+                        <li>تحسين البيانات المنظمة للمنتجات.</li>
+                        <li>تحسين أرشفة صفحات التصنيفات والمنتجات.</li>
+                        <li>مراجعة الصفحات غير القابلة للفهرسة.</li>
+                        <li>معالجة الصفحات المتكررة عند الحاجة.</li>
+                    </ul>
+
+                    <h4 class="font-bold text-orange-300 mb-1 text-sm">ثانيًا: On-Page SEO</h4>
+                    <ul class="list-disc list-inside space-y-1 text-slate-300 text-sm mr-4 mb-3">
+                        <li>تحسين صفحات المنتجات باستخدام الكلمات المفتاحية المستهدفة.</li>
+                        <li>تطوير وصف المنتجات بطريقة تجمع بين المعلومات التسويقية ومتطلبات محركات البحث.</li>
+                        <li>تحسين أسماء الصور وAlt Text.</li>
+                        <li>إنشاء صفحات مخصصة للمجموعات.</li>
+                        <li>تحسين المحتوى الموجود بالفعل بدلًا من الاكتفاء بنشر مقالات جديدة.</li>
+                        <li>تحسين العناوين والأوصاف بما يعكس طبيعة كل صفحة.</li>
+                        <li>إنشاء روابط داخلية تربط المنتجات والمجموعات والمقالات ذات الصلة.</li>
+                    </ul>
+
+                    <h4 class="font-bold text-orange-300 mb-1 text-sm">ثالثًا: Commercial SEO</h4>
+                    <p class="text-slate-300 text-sm mb-2">يجب التركيز على الكلمات التي تعكس رغبة المستخدم في اكتشاف المنتج أو مقارنته أو شرائه. ومن أمثلتها:</p>
+                    <ul class="list-disc list-inside space-y-1 text-slate-300 text-sm mr-4 mb-3">
+                        <li>أفضل خواتم الألماس النسائية.</li>
+                        <li>أساور الذهب المرصعة بالألماس.</li>
+                        <li>قلائد اللؤلؤ الفاخرة.</li>
+                        <li>مجوهرات الهدايا والمناسبات.</li>
+                        <li>خواتم السوليتير.</li>
+                        <li>مجوهرات ذهب بتصميمات عصرية.</li>
+                        <li>أطقم مجوهرات نسائية.</li>
+                        <li>خواتم الخطوبة والألماس.</li>
+                        <li>هدايا المجوهرات الفاخرة.</li>
+                    </ul>
+
+                    <h4 class="font-bold text-orange-300 mb-1 text-sm">رابعًا: Content Marketing</h4>
+                    <p class="text-slate-300 text-sm mb-2">إعادة بناء استراتيجية المدونة بحيث تخدم رحلة الشراء. على سبيل المثال، يمكن إعداد مقال عن كيفية اختيار خاتم ألماس، ويتضمن روابط مباشرة إلى مجموعة خواتم الألماس وصفحات المنتجات المناسبة. وبذلك لا يصبح المقال مجرد وسيلة لجلب الزيارات، وإنما وسيلة لتوجيه الزوار إلى المنتجات.</p>
+                    <p class="text-slate-300 text-sm">كما يمكن إعداد محتوى متخصص حول الفرق بين أنواع الأحجار الكريمة، وكيفية اختيار المجوهرات المناسبة للمناسبات المختلفة، وطرق العناية بالمجوهرات.</p>
+                </div>
+
+                <!-- Track 3 -->
+                <div class="inner-item p-6 rounded-2xl border-2 border-orange-500/40">
+                    <h3 class="text-xl font-bold text-orange-400 mb-2">المسار الثالث: إدارة وسائل التواصل الاجتماعي</h3>
+                    <p class="text-slate-300 text-sm mb-3"><strong>الهدف:</strong> تحويل الحسابات الحالية من منصات عرض للمنتجات إلى قنوات فعالة لبناء الرغبة الشرائية وتحقيق المبيعات.</p>
+
+                    <div class="space-y-3 text-slate-300 text-sm">
+                        <p><strong>أولًا: محتوى المنتجات:</strong> عرض المنتجات بطريقة احترافية تتضمن تفاصيل التصميم والخامات والأحجار، مع تصوير المنتجات أثناء الاستخدام. ويجب أن يكون المحتوى قادرًا على توضيح شكل المنتج وقيمته بطريقة تساعد العميل على تخيل استخدامه.</p>
+                        <p><strong>ثانيًا: محتوى العلامة التجارية:</strong> إظهار هوية NAVAL وقيمة المجموعات المختلفة، وتعريف الجمهور بقصة المنتجات والتصميمات. ويهدف هذا النوع من المحتوى إلى بناء علاقة بين العميل والعلامة التجارية، بدلًا من الاكتفاء بعرض المنتجات بصورة مباشرة.</p>
+                        <p><strong>ثالثًا: المحتوى التثقيفي:</strong> نشر محتوى يساعد العميل على اتخاذ قرار الشراء، مثل كيفية اختيار قطعة المجوهرات المناسبة، الفرق بين أنواع الأحجار الكريمة، نصائح العناية بالمجوهرات، كيفية اختيار هدية مناسبة، طرق تنسيق المجوهرات مع الإطلالات، كيفية اختيار الخواتم والمقاسات المناسبة، وأهم التفاصيل التي يجب معرفتها قبل شراء المجوهرات.</p>
+                        <p><strong>رابعًا: محتوى المناسبات:</strong> تطوير حملات محتوى مخصصة للمناسبات والمواسم، مثل الأعياد، يوم التأسيس السعودي، اليوم الوطني السعودي، موسم الزواج والخطوبة، عيد الأم، موسم الهدايا، مواسم التخفيضات، ومناسبات التخرج والاحتفالات.</p>
+                        <p><strong>خامسًا: المؤثرون وصناع المحتوى:</strong> التعاون مع صناع محتوى في مجالات الأزياء والجمال ونمط الحياة. ويجب اختيار المؤثرين بناءً على تطابق جمهورهم مع الجمهور المستهدف، وجودة المحتوى، ومستوى التفاعل، وليس عدد المتابعين فقط. كما يفضل قياس نتائج كل تعاون من خلال زيارات الموقع والطلبات واستخدام رموز الخصم عند الحاجة.</p>
+                    </div>
+                </div>
+
+                <!-- Track 4 -->
+                <div class="inner-item p-6 rounded-2xl border-2 border-orange-500/40">
+                    <h3 class="text-xl font-bold text-orange-400 mb-2">المسار الرابع: الحملات الإعلانية المدفوعة</h3>
+                    <p class="text-slate-300 text-sm mb-3"><strong>الهدف:</strong> زيادة المبيعات والاستفادة من قاعدة الجمهور والزيارات الحالية.</p>
+
+                    <div class="space-y-3 text-slate-300 text-sm">
+                        <p><strong>أولًا: Google Ads:</strong> حملات بحث للكلمات التجارية والشرائية، حملات خاصة بالعلامة التجارية NAVAL، حملات Shopping عند استيفاء متطلبات المنتجات والكتالوج، حملات إعادة الاستهداف للزوار السابقين، حملات المنتجات الأكثر مبيعًا، وتحسين الحملات وفق قيمة المبيعات وليس عدد النقرات فقط.</p>
+                        <p><strong>ثانيًا: Meta Ads:</strong> حملات اكتساب عملاء جدد، حملات عرض المجموعات الجديدة، حملات المنتجات الأكثر مبيعًا، حملات إعادة استهداف زوار الموقع، حملات استعادة السلال المتروكة، حملات إعلانية مرتبطة بالمناسبات، وحملات تستهدف شرائح العملاء المهتمين بالمجوهرات والهدايا والأزياء.</p>
+                        <p><strong>ثالثًا: Snapchat وTikTok:</strong> الاستفادة من طبيعة المنصتين في عرض المنتجات بصورة مرئية جذابة، من خلال فيديوهات قصيرة وتجارب الاستخدام وتنسيق الإطلالات وعروض المناسبات. ويجب أن تعتمد الحملات على محتوى بصري يبرز التفاصيل الفعلية للمنتجات ويحفز الجمهور على زيارة المتجر.</p>
+                        <p><strong>رابعًا: Retargeting:</strong> تكوين شرائح إعلانية حسب سلوك المستخدم، مثل من شاهد المنتج، من زار صفحة تصنيف، من أضاف منتجًا للسلة، من بدأ عملية الدفع، ومن اشترى سابقًا. ويتم تخصيص الرسائل الإعلانية حسب المرحلة التي وصل إليها العميل، مع استبعاد المشترين أو تغيير الرسائل الموجهة إليهم بما يتناسب مع سلوكهم السابق.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 10 -->
+        <section class="content-card p-8 rounded-3xl shadow-xl motion-fade-in">
+            <h2 class="text-2xl font-black text-orange-500 mb-4 pb-2 border-b-2 border-orange-500/50 inline-block">عاشرًا: خطة التنفيذ المرحلية</h2>
+            
+            <div class="space-y-6 mt-6">
+                <div class="inner-item p-6 rounded-2xl border-l-4 border-orange-500">
+                    <h3 class="text-xl font-bold text-orange-400 mb-2">الشهر الأول: التأسيس والتحسين التقني</h3>
+                    <h4 class="font-bold text-orange-300 mb-1 text-sm">الأهداف الرئيسية:</h4>
+                    <ul class="list-disc list-inside space-y-1 text-slate-300 text-sm mr-4 mb-3">
+                        <li>تنفيذ مراجعة فنية شاملة للموقع.</li>
+                        <li>تحسين سرعة الموقع وتجربة الهاتف.</li>
+                        <li>معالجة أخطاء 404.</li>
+                        <li>مراجعة عناوين الصفحات والبيانات المنظمة.</li>
+                        <li>مراجعة إعدادات التتبع والتحليلات.</li>
+                        <li>تحديد الكلمات المفتاحية التجارية والشرائية.</li>
+                        <li>مراجعة صفحات المنتجات والتصنيفات.</li>
+                        <li>وضع خطة تطوير للمحتوى.</li>
+                    </ul>
+                    <h4 class="font-bold text-orange-300 mb-1 text-sm">المخرجات المتوقعة:</h4>
+                    <p class="text-slate-300 text-sm">تأسيس بنية تقنية وتسويقية أفضل، ومعالجة المشكلات التي قد تؤثر في كفاءة الزيارات الحالية.</p>
+                </div>
+
+                <div class="inner-item p-6 rounded-2xl border-l-4 border-orange-500">
+                    <h3 class="text-xl font-bold text-orange-400 mb-2">الشهر الثاني: تطوير الظهور والمحتوى</h3>
+                    <h4 class="font-bold text-orange-300 mb-1 text-sm">الأهداف الرئيسية:</h4>
+                    <ul class="list-disc list-inside space-y-1 text-slate-300 text-sm mr-4 mb-3">
+                        <li>تحسين صفحات المنتجات والتصنيفات.</li>
+                        <li>تطوير المحتوى المتوافق مع SEO.</li>
+                        <li>تحسين الروابط الداخلية.</li>
+                        <li>تطوير محتوى Instagram وTikTok.</li>
+                        <li>تصوير وعرض المنتجات بصورة أكثر احترافية.</li>
+                        <li>إطلاق محتوى تثقيفي وتجاري.</li>
+                        <li>تطوير صفحات المنتجات الأكثر طلبًا.</li>
+                    </ul>
+                    <h4 class="font-bold text-orange-300 mb-1 text-sm">المخرجات المتوقعة:</h4>
+                    <p class="text-slate-300 text-sm">زيادة جودة الظهور العضوي، وتحسين تجربة المستخدم، وزيادة فرص انتقال الجمهور من المحتوى إلى صفحات المنتجات.</p>
+                </div>
+
+                <div class="inner-item p-6 rounded-2xl border-l-4 border-orange-500">
+                    <h3 class="text-xl font-bold text-orange-400 mb-2">الشهر الثالث: الحملات الإعلانية وتحسين التحويل</h3>
+                    <h4 class="font-bold text-orange-300 mb-1 text-sm">الأهداف الرئيسية:</h4>
+                    <ul class="list-disc list-inside space-y-1 text-slate-300 text-sm mr-4 mb-3">
+                        <li>إطلاق الحملات الإعلانية وفق جاهزية الموقع.</li>
+                        <li>تشغيل حملات Google Search.</li>
+                        <li>تطوير حملات Meta.</li>
+                        <li>تشغيل حملات إعادة الاستهداف.</li>
+                        <li>تطوير حملات المنتجات والمجموعات.</li>
+                        <li>استهداف العملاء الذين تفاعلوا مع المحتوى.</li>
+                        <li>تحليل نتائج الحملات والمبيعات.</li>
+                        <li>تطوير استراتيجية تحسين معدل التحويل.</li>
+                    </ul>
+                    <h4 class="font-bold text-orange-300 mb-1 text-sm">المخرجات المتوقعة:</h4>
+                    <p class="text-slate-300 text-sm mb-2">زيادة فرص تحقيق المبيعات، وتحسين كفاءة الإنفاق الإعلاني، والاستفادة من الجمهور والزيارات الموجودة بالفعل.</p>
+                    <p class="text-orange-300 text-xs">ويجب أن يبدأ قياس الأداء من الشهر الأول، وأن تتم مراجعة النتائج أسبوعيًا، مع تعديل الأولويات بناءً على بيانات المبيعات الفعلية.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 11 -->
+        <section class="content-card p-8 rounded-3xl shadow-xl motion-fade-in">
+            <h2 class="text-2xl font-black text-orange-500 mb-4 pb-2 border-b-2 border-orange-500/50 inline-block">الحادي عشر: مؤشرات الأداء الرئيسية KPI's</h2>
+            <p class="text-slate-300 mb-6">للتأكد من أن التطوير يحقق نتائج تجارية، يجب اعتماد مؤشرات أداء واضحة لكل قناة تسويقية.</p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="inner-item p-5 rounded-xl">
+                    <h3 class="font-bold text-orange-400 mb-2">أولًا: مؤشرات SEO</h3>
+                    <ul class="list-disc list-inside space-y-1 text-slate-300 text-sm mr-4">
+                        <li>حجم الزيارات العضوية.</li>
+                        <li>عدد الكلمات المفتاحية التي تحقق ظهورًا.</li>
+                        <li>عدد الكلمات الموجودة في النتائج المتقدمة.</li>
+                        <li>معدل النقر من نتائج البحث.</li>
+                        <li>مرات الظهور.</li>
+                        <li>أداء صفحات المنتجات والتصنيفات.</li>
+                        <li>الزيارات العضوية التي تنتهي بعمليات شراء.</li>
+                    </ul>
+                </div>
+
+                <div class="inner-item p-5 rounded-xl">
+                    <h3 class="font-bold text-orange-400 mb-2">ثانيًا: المؤشرات الفنية Technical SEO</h3>
+                    <ul class="list-disc list-inside space-y-1 text-slate-300 text-sm mr-4">
+                        <li>عدد أخطاء الزحف.</li>
+                        <li>عدد الصفحات المفهرسة.</li>
+                        <li>مؤشرات Core Web Vitals.</li>
+                        <li>سرعة تحميل الموقع.</li>
+                        <li>عدد الصفحات غير الموجودة.</li>
+                        <li>سلامة الروابط الداخلية.</li>
+                        <li>حالة البيانات المنظمة.</li>
+                    </ul>
+                </div>
+
+                <div class="inner-item p-5 rounded-xl">
+                    <h3 class="font-bold text-orange-400 mb-2">ثالثًا: مؤشرات CRO</h3>
+                    <ul class="list-disc list-inside space-y-1 text-slate-300 text-sm mr-4">
+                        <li>معدل التحويل.</li>
+                        <li>معدل الإضافة إلى السلة.</li>
+                        <li>معدل بدء عملية الدفع.</li>
+                        <li>معدل إتمام الدفع.</li>
+                        <li>معدل التخلي عن السلة.</li>
+                        <li>متوسط قيمة الطلب.</li>
+                        <li>أداء صفحات المنتجات.</li>
+                    </ul>
+                </div>
+
+                <div class="inner-item p-5 rounded-xl">
+                    <h3 class="font-bold text-orange-400 mb-2">رابعًا: مؤشرات Social Media</h3>
+                    <ul class="list-disc list-inside space-y-1 text-slate-300 text-sm mr-4">
+                        <li>معدل التفاعل.</li>
+                        <li>عدد المشاهدات.</li>
+                        <li>المشاركات والحفظ.</li>
+                        <li>نمو الجمهور.</li>
+                        <li>زيارات المتجر من منصات التواصل الاجتماعي.</li>
+                        <li>عدد الرسائل والاستفسارات.</li>
+                        <li>الطلبات الناتجة عن الحملات والمحتوى.</li>
+                    </ul>
+                </div>
+
+                <div class="inner-item p-5 rounded-xl">
+                    <h3 class="font-bold text-orange-400 mb-2">خامسًا: مؤشرات Paid Ads</h3>
+                    <ul class="list-disc list-inside space-y-1 text-slate-300 text-sm mr-4">
+                        <li>العائد على الإنفاق الإعلاني ROAS.</li>
+                        <li>تكلفة اكتساب العميل CPA.</li>
+                        <li>معدل النقر CTR.</li>
+                        <li>تكلفة النقرة CPC.</li>
+                        <li>معدل التحويل Conversion Rate.</li>
+                        <li>قيمة المبيعات الناتجة عن الحملات.</li>
+                        <li>تكلفة إضافة المنتجات إلى السلة.</li>
+                        <li>تكلفة بدء عملية الدفع.</li>
+                    </ul>
+                </div>
+
+                <div class="inner-item p-5 rounded-xl">
+                    <h3 class="font-bold text-orange-400 mb-2">سادسًا: مؤشرات التجارة الإلكترونية</h3>
+                    <ul class="list-disc list-inside space-y-1 text-slate-300 text-sm mr-4">
+                        <li>عدد الطلبات.</li>
+                        <li>إجمالي الإيرادات.</li>
+                        <li>متوسط قيمة الطلب.</li>
+                        <li>معدل تكرار الشراء.</li>
+                        <li>عدد العملاء العائدين.</li>
+                        <li>نسبة السلال المتروكة.</li>
+                        <li>الإيرادات الناتجة عن العملاء السابقين.</li>
+                    </ul>
+                </div>
+            </div>
+            <p class="text-slate-300 text-sm mt-6">ويجب ربط جميع هذه المؤشرات ببيانات Google Analytics 4 وGoogle Search Console ومنصة المتجر، لضمان قياس النتائج التجارية الفعلية بدلًا من الاعتماد على تقديرات الأدوات الخارجية فقط.</p>
+        </section>
+
+        <!-- Section 12 -->
+        <section class="content-card p-8 rounded-3xl shadow-xl motion-fade-in">
+            <h2 class="text-2xl font-black text-orange-500 mb-4 pb-2 border-b-2 border-orange-500/50 inline-block">الثاني عشر: التوصيات النهائية والإدارة الاستراتيجية</h2>
+            <p class="text-slate-300 mb-4">بعد دراسة المؤشرات التقنية والتسويقية وتحليل المنافسين، يمكن تلخيص الوضع الحالي لمتجر NAVAL في النقاط التالية:</p>
+
+            <div class="space-y-4">
+                <div class="inner-item p-4 rounded-xl">
+                    <h3 class="font-bold text-orange-400 mb-1">1. الموقع يمتلك قاعدة رقمية يمكن البناء عليها</h3>
+                    <p class="text-slate-300 text-sm">وجود زيارات عضوية وكلمات مفتاحية وروابط خارجية وقاعدة متابعين كبيرة يوفر أساسًا جيدًا لتطوير الأداء. وبالتالي لا تبدأ الاستراتيجية من الصفر، وإنما تهدف إلى تحسين استغلال الأصول الرقمية الموجودة بالفعل.</p>
+                </div>
+                <div class="inner-item p-4 rounded-xl">
+                    <h3 class="font-bold text-orange-400 mb-1">2. توجد مشكلة واضحة في الأداء التقني على الهاتف</h3>
+                    <p class="text-slate-300 text-sm">انخفاض تقييم الأداء إلى 39 من 100 وارتفاع LCP إلى 15.7 ثانية يجعلان تحسين تجربة الهاتف أولوية مباشرة. ويجب معالجة هذه المشكلة قبل توسيع حجم الزيارات المدفوعة بصورة كبيرة.</p>
+                </div>
+                <div class="inner-item p-4 rounded-xl">
+                    <h3 class="font-bold text-orange-400 mb-1">3. هناك فرصة كبيرة لتحسين جودة الزيارات العضوية</h3>
+                    <p class="text-slate-300 text-sm">الاعتماد الحالي على الكلمات المعلوماتية يمثل فرصة لإضافة كلمات تجارية وشرائية تزيد ارتباط الزيارات بالمنتجات. ويمكن تحقيق ذلك من خلال تطوير التصنيفات والمنتجات وربط المحتوى المعلوماتي بالصفحات التجارية.</p>
+                </div>
+                <div class="inner-item p-4 rounded-xl">
+                    <h3 class="font-bold text-orange-400 mb-1">4. يجب تحسين العلاقة بين المحتوى والمبيعات</h3>
+                    <p class="text-slate-300 text-sm">كل مقال أو منشور أو حملة إعلانية يجب أن يساهم في نقل العميل إلى خطوة واضحة في رحلة الشراء. ولا يكفي قياس نجاح المحتوى بعدد المشاهدات أو الإعجابات فقط، بل يجب ربط النتائج بزيارات المنتجات والاستفسارات والطلبات والمبيعات.</p>
+                </div>
+                <div class="inner-item p-4 rounded-xl">
+                    <h3 class="font-bold text-orange-400 mb-1">5. يجب تطوير استراتيجية التواصل الاجتماعي</h3>
+                    <p class="text-slate-300 text-sm">قاعدة المتابعين الحالية تمثل أصلًا تسويقيًا يمكن استثماره بشكل أفضل من خلال محتوى يبرز المنتجات ويحفز التفاعل والشراء. وينبغي تطوير محتوى يوازن بين عرض المنتجات والتثقيف وبناء الثقة وتحفيز اتخاذ القرار.</p>
+                </div>
+                <div class="inner-item p-4 rounded-xl">
+                    <h3 class="font-bold text-orange-400 mb-1">6. المنافسة تتطلب بناء قيمة واضحة للعلامة</h3>
+                    <p class="text-slate-300 text-sm">تتميز Kooheji بالتاريخ والخبرة في المجوهرات الفاخرة، بينما تتميز Fayendra بالانتشار وتنوع الخدمات والعروض. ولذلك يجب أن تركز NAVAL على تحسين تجربة الشراء الرقمية، وتميز مجموعاتها، وتعزيز الثقة في المنتجات، وتطوير تجربة ما بعد البيع.</p>
+                </div>
+                <div class="inner-item p-4 rounded-xl">
+                    <h3 class="font-bold text-orange-400 mb-1">7. تطوير الحملات الإعلانية يجب أن يعتمد على جودة رحلة الشراء</h3>
+                    <p class="text-slate-300 text-sm">لا ينصح بالاعتماد على زيادة الميزانية الإعلانية وحدها لمعالجة ضعف المبيعات. بل يجب التأكد من جاهزية صفحات الهبوط والمنتجات والسلة والدفع، ثم توسيع الحملات وفق نتائج فعلية.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 13 -->
+        <section class="content-card p-8 rounded-3xl shadow-xl motion-fade-in border-2 border-orange-500 bg-[#141414]">
+            <h2 class="text-2xl font-black text-orange-500 mb-4 pb-2 border-b-2 border-orange-500/50 inline-block">الثالث عشر: التوصية الاستراتيجية الأساسية</h2>
+            <p class="text-slate-300 leading-relaxed mb-4">
+                أوصي بعدم البدء بزيادة الإنفاق الإعلاني بصورة كبيرة قبل معالجة مشاكل الأداء الفني وتجربة الشراء. والأفضل هو بناء منظومة متكاملة تبدأ بتحسين الموقع، ثم زيادة الظهور العضوي التجاري، ثم تطوير المحتوى، ثم توسيع الحملات الإعلانية وإعادة الاستهداف.
+            </p>
+            <p class="text-slate-300 leading-relaxed mb-6">
+                ويجب أن تعمل جميع هذه المسارات بصورة مترابطة؛ لأن زيادة الزيارات دون تحسين تجربة المستخدم قد لا تحقق العائد المتوقع، كما أن تطوير الموقع دون استراتيجية لجذب العملاء لن يستغل كامل إمكانياته التجارية. لذلك فإن الأولوية هي تأسيس تجربة شراء رقمية متكاملة تدعم ظهور العلامة في محركات البحث، وتجذب الجمهور المناسب، وتساعده على استكشاف المنتجات، وتوفر له المعلومات اللازمة لاتخاذ قرار الشراء.
+            </p>
+
+            <div class="inner-item p-6 rounded-2xl bg-black/60 border border-orange-500/40 mb-6">
+                <h3 class="font-bold text-orange-400 text-lg mb-2">الخلاصة التجارية</h3>
+                <p class="text-slate-300 text-sm leading-relaxed mb-3">
+                    تمتلك NAVAL بالفعل حضورًا رقميًا وقاعدة جماهيرية جيدة، ولكن هناك فجوة بين الإمكانيات الحالية والأداء الذي يمكن تحقيقه تجاريًا. وتتمثل فرص التطوير الرئيسية في تحسين سرعة وتجربة المتجر، وتعزيز الظهور في الكلمات المفتاحية الشرائية، وتطوير المحتوى والحملات الإعلانية، وبناء رحلة شراء أكثر كفاءة.
+                </p>
+                <p class="text-slate-300 text-sm leading-relaxed mb-3">
+                    إن الهدف النهائي ليس زيادة عدد الزوار فقط، وإنما تحويل الحضور الرقمي الحالي إلى منظومة مستدامة لجذب العملاء وتحقيق المبيعات وزيادة قيمة العميل على المدى الطويل.
+                </p>
+                <p class="text-orange-300 font-bold text-sm mb-2">التوجه المقترح:</p>
+                <p class="text-slate-300 text-sm leading-relaxed mb-3">
+                    الانتقال من مجرد إدارة قنوات التسويق الرقمي إلى إدارة منظومة نمو تجاري متكاملة، يكون فيها الموقع الإلكتروني ومحركات البحث والمحتوى والحملات الإعلانية وتجربة العملاء عناصر تعمل معًا لتحقيق أهداف المتجر.
+                </p>
+                <p class="text-orange-400 font-bold text-sm">أهم زاوية تجارية في المشروع:</p>
+                <p class="text-slate-300 text-sm italic">
+                    المشكلة ليست في عدم وصول NAVAL إلى الجمهور، بل في عدم استغلال كامل قيمة الجمهور والزيارات الموجودة بالفعل. ومن هنا تأتي أهمية تنفيذ مشروع متكامل يجمع بين تحسين محركات البحث، وتحسين معدل التحويل، وإدارة وسائل التواصل الاجتماعي، والحملات الإعلانية، بهدف رفع كفاءة الاستثمار التسويقي وتحويل الحضور الرقمي إلى نتائج تجارية فعلية.
+                </p>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Floating Bottom-Right Glowing Logo -->
+    <div class="fixed bottom-6 right-6 z-50">
+        <a href="https://dg-craft.com/index.html" target="_blank" class="block animate-glow rounded-3xl overflow-hidden w-16 h-16 md:w-20 md:h-20 bg-black border-2 border-orange-500 shadow-[0_0_25px_rgba(255,102,0,0.8)] p-1 transition-transform hover:scale-110" title="زيارة موقع Digital Craft">
+            <img src="https://i.ibb.co/M5k30hGM/b3d88775-4dd0-4ccf-ae34-ae20c23ff8da.jpg" alt="Digital Craft Logo" class="w-full h-full object-cover rounded-2xl" onerror="this.src='https://placehold.co/100x100/000000/ff6600?text=DC'" />
+        </a>
+    </div>
+
+    <!-- Modal JavaScript Handler -->
+    <script>
+        function openModal(imgSrc, captionText) {
+            const modal = document.getElementById('imageModal');
+            const modalImg = document.getElementById('modalImage');
+            const modalCaption = document.getElementById('modalCaption');
+            
+            modalImg.src = imgSrc;
+            modalCaption.textContent = captionText;
+            modal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('imageModal');
+            modal.classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal when clicking outside the content box
+        document.getElementById('imageModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeModal();
+            }
+        });
+
+        // Close modal on ESC key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeModal();
+            }
+        });
+    </script>
+
+</body>
+</html>
